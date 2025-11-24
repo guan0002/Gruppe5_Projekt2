@@ -22,29 +22,55 @@ public class memberDatabase {
             String paid         = entry [3]; //TBD
 
             member m = new member(name, age, memberType, paid);
-            if (entry.length > 4) {
-                try {
 
-
-                }
-            }
             members.add(m);
 
             line = load.readLine();
         }
         load.close();
         return members;
-        }
     }
-//opdaterer customerDatabase.txt med ny kunde
-public static void saveCustomersToFile(ArrayList<Customer> customers) throws IOException {
+}
+//opdaterer memberDatabase.txt med ny kunde
+public static void savemembersToFile(ArrayList<member> members) throws IOException {
 
-    FileWriter file = new FileWriter("src/customerDatabase.txt", false);
+    FileWriter file = new FileWriter("src/memberDatabase.txt", false);
     PrintWriter out = new PrintWriter(file);
 
-    for (Customer c : customers) {
+    for (member c : members) {
         out.println(c.toString());
     }
 
     out.close();
 }
+//søgefunktion til at finde en kunde ud fra navn
+public static member findmemberByName(String name) throws IOException {
+    ArrayList<member> member = memberDatabase.loadDatabase();
+
+    for (member c : member) {
+        if (c.name.equalsIgnoreCase(name)) {
+            return c;
+        }
+    }
+    return null;
+}
+//sletter kunde
+static void deletemember(String name) throws IOException {
+    ArrayList<member> members = loadDatabase();
+    boolean removed = members.removeIf(c -> c.name.equalsIgnoreCase(name));   //finder kunde ud fra indtastet navn
+
+    if (!removed) {
+        System.out.println("member not found.");
+        return;
+    }
+
+    FileWriter writer = new FileWriter("src/memberDatabase.txt", false);
+    PrintWriter dc = new PrintWriter(writer);
+
+    for (member c : members) {
+        dc.println(c.toString());
+    }
+    dc.close();
+    System.out.println("member deleted: " + name);
+}
+
