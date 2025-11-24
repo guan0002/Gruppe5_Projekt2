@@ -3,6 +3,6 @@ public class Main {
         System.out.println("Hello World!");
     }
     public void testMetode() {
-        System.out.println("Dette er en test 🐬🍆💦");
+        System.out.println("Dette er et test 🐬🍆💦");
     }
 }
