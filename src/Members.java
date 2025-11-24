@@ -19,6 +19,7 @@ public class Members {
         Scanner input = new Scanner(System.in);
         boolean correctIntFormat = false;
         boolean correctMemberType = false;
+        boolean correctPaid = false;
 
         System.out.println("Write member name");
         String name = input.nextLine();
@@ -46,9 +47,20 @@ public class Members {
             }
         }
 
+        while (!correctPaid) {
+            System.out.println("Write yes if the member has paid or no for not paid");
+            String paid = input.nextLine();
+            if (paid.equalsIgnoreCase("Yes") || (paid.equalsIgnoreCase("No"))) {
+                correctPaid = true;
+            }
+            else {
+                System.out.println("You have to write yes or no");
+            }
+        }
 
 
-        Members m1 = new Members(name, age, memberType, paid);
+
+        Members m = new Members(name, age, memberType, paid);
     }
 }
 
