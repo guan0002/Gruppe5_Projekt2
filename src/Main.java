@@ -3,7 +3,7 @@ public class Main {
         System.out.println("Hello World!");
     }
     public void testMetode() {
-        System.out.println("Dette er et test 🐬🍆💦");
+        System.out.println("Dette er ein test 🐬🍆💦");
     }
     public void adamMetode(){
         System.out.println("blabla");
