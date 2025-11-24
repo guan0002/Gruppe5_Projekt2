@@ -5,4 +5,7 @@ public class Main {
     public void testMetode() {
         System.out.println("Dette er et test 🐬🍆💦");
     }
+    public void adamMetode(){
+        System.out.println("blabla");
+    }
 }
