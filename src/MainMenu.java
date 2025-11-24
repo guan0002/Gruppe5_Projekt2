@@ -1,15 +1,15 @@
 import java.util.Scanner;
-
 public class MainMenu {
 
-    public static void MainMenu() {
 
+public static void PrintMenus() {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
 
         while (run) {
             System.out.println("Welcome to your booking system!");
+
             String[] printMenus = {
                     "",
                     "Example 1",
@@ -19,16 +19,16 @@ public class MainMenu {
                     "Example 5",
             };
 
-            for (int i = 0; i < printMenus.length; i++) {
+            for (int i = 1; i < printMenus.length; i++) {
                 System.out.println(i + ": " + printMenus[i]);
             }
-            System.out.println("Enter a number");
+            System.out.println("Enter a number:");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
                 case 1:
-//Metode her
+                   //Metode her
                     break;
                 case 2:
                     //Metode her
