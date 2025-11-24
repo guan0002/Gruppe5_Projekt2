@@ -21,23 +21,11 @@ public class memberDatabase {
             String memberType   = entry [2];
             String paid         = entry [3]; //TBD
 
-            member m = new member(name, email, date, time);
+            member m = new member(name, age, memberType, paid);
             if (entry.length > 4) {
                 try {
-                    m.lastPayment = Double.parseDouble(entry[4]);
-                } catch (Exception e) {
-                    m.lastPayment = 0;
-                }
 
-                if (entry.length > 5) {
-                    m.lastHaircutType = entry[5];
-                }
 
-                if (entry.length > 6) {
-                    String productString = entry[6];
-                    if (!productString.isEmpty()) {
-                        m.lastProducts = productString.split(";");
-                    }
                 }
             }
             members.add(m);
