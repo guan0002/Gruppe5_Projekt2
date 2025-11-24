@@ -46,7 +46,7 @@ public class memberDatabase {
         }
         load.close();
         return members;
-        }
+        }asd
     }
 //opdaterer customerDatabase.txt med ny kunde
 public static void saveCustomersToFile(ArrayList<Customer> customers) throws IOException {
