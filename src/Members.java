@@ -17,11 +17,14 @@ public class Members {
 
     }
 
-    public void registerMember() {
+    public static void registerMember() {
         Scanner input = new Scanner(System.in);
         boolean correctIntFormat = false;
         boolean correctMemberType = false;
         boolean correctPaid = false;
+        int age = 0;
+        String memberType="";
+        String paid="";
 
         System.out.println("Write member name");
         String name = input.nextLine();
@@ -29,7 +32,7 @@ public class Members {
         while (!correctIntFormat) {
             System.out.println("Write age");
             try {
-               int age = input.nextInt();           // Vi laver senere en loop
+               age = input.nextInt();           // Vi laver senere en loop
                 correctIntFormat = true;
                 input.nextLine();
             } catch (InputMismatchException e) {
@@ -40,7 +43,7 @@ public class Members {
 
         while (!correctMemberType) {
             System.out.println("Write membertype: \n Junior Member \n Senior Member \n Retired Member \n Passive Member");
-            String memberType = input.nextLine();
+            memberType = input.nextLine();
             if (memberType.equalsIgnoreCase("Junior Member") || memberType.equalsIgnoreCase("Senior Member") || memberType.equalsIgnoreCase("Retired Member") || memberType.equalsIgnoreCase("Passive Member")) {
                 correctMemberType=true;
             }
@@ -51,7 +54,7 @@ public class Members {
 
         while (!correctPaid) {
             System.out.println("Write yes if the member has paid or no for not paid");
-            String paid = input.nextLine();
+            paid = input.nextLine();
             if (paid.equalsIgnoreCase("Yes") || (paid.equalsIgnoreCase("No"))) {
                 correctPaid = true;
             }
