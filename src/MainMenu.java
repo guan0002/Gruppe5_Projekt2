@@ -10,7 +10,6 @@ public class MainMenu {
 
         while (run) {
             System.out.println("Welcome to your booking system!");
-            //Mikkels kommentar
             String[] printMenus = {
                     "",
                     "Example 1",
@@ -18,7 +17,6 @@ public class MainMenu {
                     "Example 3",
                     "Example 4",
                     "Example 5",
-
             };
 
             for (int i = 0; i < printMenus.length; i++) {
