@@ -3,7 +3,7 @@ package listFramework;
 import java.io.*;
 import java.util.ArrayList;
 
-public class MemberDatabase {
+public class CompetitionDatabase {
 
     public static ArrayList<Member> loadDatabase() throws IOException {
         ArrayList<Member> members = new ArrayList<>();
