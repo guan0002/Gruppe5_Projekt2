@@ -9,6 +9,7 @@ public static void PrintMenus() {
 
         while (run) {
             System.out.println("Welcome to your booking system!");
+
             String[] printMenus = {
                     "",
                     "Example 1",
