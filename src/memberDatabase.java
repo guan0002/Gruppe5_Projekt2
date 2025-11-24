@@ -37,8 +37,8 @@ public static void savemembersToFile(ArrayList<member> members) throws IOExcepti
     FileWriter file = new FileWriter("src/memberDatabase.txt", false);
     PrintWriter out = new PrintWriter(file);
 
-    for (member c : members) {
-        out.println(c.toString());
+    for (member m : members) {
+        out.println(m.toString());
     }
 
     out.close();
@@ -47,9 +47,9 @@ public static void savemembersToFile(ArrayList<member> members) throws IOExcepti
 public static member findmemberByName(String name) throws IOException {
     ArrayList<member> member = memberDatabase.loadDatabase();
 
-    for (member c : member) {
-        if (c.name.equalsIgnoreCase(name)) {
-            return c;
+    for (member m : member) {
+        if (m.name.equalsIgnoreCase(name)) {
+            return m;
         }
     }
     return null;
@@ -57,7 +57,7 @@ public static member findmemberByName(String name) throws IOException {
 //sletter kunde
 static void deletemember(String name) throws IOException {
     ArrayList<member> members = loadDatabase();
-    boolean removed = members.removeIf(c -> c.name.equalsIgnoreCase(name));   //finder kunde ud fra indtastet navn
+    boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));   //finder kunde ud fra indtastet navn
 
     if (!removed) {
         System.out.println("member not found.");
@@ -67,8 +67,8 @@ static void deletemember(String name) throws IOException {
     FileWriter writer = new FileWriter("src/memberDatabase.txt", false);
     PrintWriter dc = new PrintWriter(writer);
 
-    for (member c : members) {
-        dc.println(c.toString());
+    for (member m : members) {
+        dc.println(m.toString());
     }
     dc.close();
     System.out.println("member deleted: " + name);
