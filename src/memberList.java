@@ -1,2 +1,2 @@
-public class memberList {pik
+public class memberList {
 }
