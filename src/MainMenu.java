@@ -28,7 +28,7 @@ public class MainMenu {
 
             switch (choice) {
                 case 1:
-//Metode her
+                   //Metode her
                     break;
                 case 2:
                     //Metode her
