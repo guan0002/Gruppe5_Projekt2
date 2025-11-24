@@ -18,7 +18,6 @@ public class MainMenu {
                     "Example 3",
                     "Example 4",
                     "Example 5",
-
             };
 
             for (int i = 0; i < printMenus.length; i++) {
@@ -30,7 +29,7 @@ public class MainMenu {
 
             switch (choice) {
                 case 1:
-//Metode her
+                   //Metode her
                     break;
                 case 2:
                     //Metode her

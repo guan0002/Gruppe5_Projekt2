@@ -7,5 +7,7 @@ public class Main {
     }
     public void adamMetode(){
         System.out.println("blabla");
+
+        }
     }
-}
+
