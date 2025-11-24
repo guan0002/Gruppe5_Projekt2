@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -6,6 +7,7 @@ public class Members {
     int age;
     String memberType;
     String paid;
+    static ArrayList<Members> membersRegister = new ArrayList<>();
 
     public Members(String name, int age, String memberType, String paid) {
         this.name = name;
@@ -58,9 +60,9 @@ public class Members {
             }
         }
 
-
-
         Members m = new Members(name, age, memberType, paid);
+        membersRegister.add(m);
+
     }
 }
 
