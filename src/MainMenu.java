@@ -28,7 +28,8 @@ public static void PrintMenus() {
 
         switch (choice) {
             case 1:
-                //Metode her
+                Members members = new Members("", 0, "", "");
+                members.registerMember();
                 break;
             case 2:
                 //Metode her
