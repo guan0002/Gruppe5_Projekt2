@@ -7,7 +7,7 @@ public class Members {
     int age;
     String memberType;
     String paid;
-    ArrayList<Members> membersRegister = new ArrayList<>();
+    public static ArrayList<Members> membersRegister = new ArrayList<>();
 
     public Members(String name, int age, String memberType, String paid) {
         this.name = name;
@@ -21,13 +21,15 @@ public class Members {
         Scanner input = new Scanner(System.in);
 
         boolean correctIntFormat = false;
+        boolean correctActivity = false;
         boolean correctMemberType = false;
         boolean correctPaid = false;
 
         String name;
         int age = 0;
-        String memberType = "";
+        String memberType="";
         String paid = "";
+        String activity = "";
 
         System.out.println("Write member name");
         name = input.nextLine();
@@ -44,17 +46,22 @@ public class Members {
             }
         }
 
-        while (!correctMemberType) {
-            System.out.println("Write membertype: \n Junior Member \n Senior Member \n Retired Member \n Passive Member");
-            memberType = input.nextLine();
-            if (memberType.equalsIgnoreCase("Junior Member") ||
-                    memberType.equalsIgnoreCase("Senior Member") ||
-                    memberType.equalsIgnoreCase("Retired Member") ||
-                    memberType.equalsIgnoreCase("Passive Member")) {
-                correctMemberType = true;
-            } else {
-                System.out.println("👇You have to choose one of the Member types that are offered below👇");
+        while(!correctActivity) {
+            System.out.println("Are the membership, active or passive?");
+            activity=input.nextLine();
+            if(activity.equalsIgnoreCase("Active") || activity.equalsIgnoreCase("Passive")) {
+                correctActivity=true;
             }
+            else {
+                System.out.println("you have to write either 'Active' or 'Passive'!!!");
+            }
+        }
+
+        if (activity.equalsIgnoreCase("Active")) {
+
+        }
+        else {
+            memberType="Passive";
         }
 
         while (!correctPaid) {
