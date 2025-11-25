@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
-public class MainMenu {
-
-
-    public static void PrintMenus() {
+public class GusTest {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
@@ -35,10 +33,8 @@ public class MainMenu {
 
                 switch (choice) {
                     case 1:
-                        Members members = new Members("", 0, "", "");
-                        members.registerMember();
+                        //Metode her
                         break;
-
                     case 2:
                         //Metode her
                         break;
