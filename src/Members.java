@@ -7,7 +7,7 @@ public class Members {
     int age;
     String memberType;
     String paid;
-    ArrayList<Members> membersRegister = new ArrayList<>();
+    public static ArrayList<Members> membersRegister = new ArrayList<>();
 
     public Members(String name, int age, String memberType, String paid) {
         this.name = name;
@@ -72,5 +72,12 @@ public class Members {
 
         System.out.println("Member registered!");
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age +
+                ", Type: " + memberType + ", Paid: " + paid;
+    }
+
 }
 

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class MainMenu {
 
@@ -31,8 +32,9 @@ public static void PrintMenus() {
                 Members members = new Members("", 0, "", "");
                 members.registerMember();
                 break;
+
             case 2:
-                //Metode her
+                MemberList.show();
                 break;
 
             case 3:
