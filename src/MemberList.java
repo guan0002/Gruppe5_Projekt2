@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 public class MemberList {
 
-
-
     public static void show() {
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = MainMenu.scanner;   // Use the same scanner
 
         System.out.println("Member List:");
 
