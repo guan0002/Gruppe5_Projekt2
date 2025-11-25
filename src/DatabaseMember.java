@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class DatabaseMember {
 
-    public static ArrayList<Member> loadDatabase() throws IOException {
-        ArrayList<Member> members = new ArrayList<>();
+    public static ArrayList<Members> loadDatabase() throws IOException {
+        ArrayList<Members> members = new ArrayList<>();
 
         FileReader cdb = new FileReader("src/CompetitionDatabase.txt");
         BufferedReader load = new BufferedReader(cdb);
@@ -23,7 +23,7 @@ public class DatabaseMember {
             String memberType = entry[2];
             String paid = entry[3];
 
-            Member m = new Member(name, age, memberType, paid);
+            Members m = new Members(name, age, memberType, paid);
             members.add(m);
 
             line = load.readLine();
@@ -32,21 +32,21 @@ public class DatabaseMember {
         return members;
     }
 
-    public static void saveMembersToFile(ArrayList<Member> members) throws IOException {
+    public static void saveMembersToFile(ArrayList<Members> members) throws IOException {
         FileWriter file = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter out = new PrintWriter(file);
 
-        for (Member m : members) {
+        for (Members m : members) {
             out.println(m.toString());
         }
 
         out.close();
     }
 
-    public static Member findMemberByName(String name) throws IOException {
-        ArrayList<Member> members = loadDatabase();
+    public static Members findMemberByName(String name) throws IOException {
+        ArrayList<Members> members = loadDatabase();
 
-        for (Member m : members) {
+        for (Members m : members) {
             if (m.name.equalsIgnoreCase(name)) {
                 return m;
             }
@@ -55,7 +55,7 @@ public class DatabaseMember {
     }
 
     public static void deleteMember(String name) throws IOException {
-        ArrayList<Member> members = loadDatabase();
+        ArrayList<Members> members = loadDatabase();
         boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));
 
         if (!removed) {
@@ -66,7 +66,7 @@ public class DatabaseMember {
         FileWriter writer = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter dc = new PrintWriter(writer);
 
-        for (Member m : members) {
+        for (Members m : members) {
             dc.println(m.toString());
         }
         dc.close();

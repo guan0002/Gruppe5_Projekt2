@@ -1,4 +1,5 @@
-import java.io.*;
+/*import java.io.*;
+
 import java.util.ArrayList;
 
 public class DatabaseCompetition {
@@ -73,4 +74,4 @@ public class DatabaseCompetition {
         System.out.println("Member deleted: " + name);
     }
 }
-
+*/
