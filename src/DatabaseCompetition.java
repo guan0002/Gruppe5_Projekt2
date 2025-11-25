@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class MemberDatabase {
+public class DatabaseCompetition {
 
-    public static ArrayList<Member> loadDatabase() throws IOException {
-        ArrayList<Member> members = new ArrayList<>();
+    public static ArrayList<Members> loadDatabase() throws IOException {
+        ArrayList<Members> members = new ArrayList<>();
 
-        FileReader cdb = new FileReader("src/CompetitionDatabase.txt");
+        FileReader cdb = new FileReader("src/DatabaseCompetition.txt");
         BufferedReader load = new BufferedReader(cdb);
 
         String line = load.readLine();
@@ -33,7 +33,7 @@ public class MemberDatabase {
     }
 
     public static void saveMembersToFile(ArrayList<Member> members) throws IOException {
-        FileWriter file = new FileWriter("src/CompetitionDatabase.txt", false);
+        FileWriter file = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter out = new PrintWriter(file);
 
         for (Member m : members) {
@@ -63,7 +63,7 @@ public class MemberDatabase {
             return;
         }
 
-        FileWriter writer = new FileWriter("src/CompetitionDatabase.txt", false);
+        FileWriter writer = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter dc = new PrintWriter(writer);
 
         for (Member m : members) {
