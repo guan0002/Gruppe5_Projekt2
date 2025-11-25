@@ -35,7 +35,7 @@ public class MainMenu {
                         members.registerMember();
 
                     case 2:
-
+                        MemberList.show();
                         break;
 
                     case 3:
