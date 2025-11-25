@@ -1,18 +1,20 @@
 import java.util.Scanner;
 
 public class GusTest {
+
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
         {
             while (run) {
-                System.out.println("Welcome to your booking system!");
+                System.out.println("Welcome to your booking system!\n");
+                System.out.println("Press 0 to go back the main menu!\n");
 
                 String[] printMenus = {
                         "",
-                        "Go back to the main menu",
-                        "Example 2",
+                        "Register a new member",
                         "Example 3",
                         "Example 4",
                         "Close the program",
@@ -25,18 +27,16 @@ public class GusTest {
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
-                if (choice == 0) {
+                if (choice == 0)
                     System.out.println("Returning to the main menu");
-                    continue;
-                }
-
 
                 switch (choice) {
                     case 1:
-                        //Metode her
-                        break;
+                        Members members = new Members("", 0, "", "");
+                        members.registerMember();
+
                     case 2:
-                        //Metode her
+
                         break;
 
                     case 3:
