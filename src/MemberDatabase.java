@@ -1,5 +1,3 @@
-package listFramework;
-
 import java.io.*;
 import java.util.ArrayList;
 
