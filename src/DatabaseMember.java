@@ -6,7 +6,7 @@ public class DatabaseMember {
     public static ArrayList<Members> loadDatabase() throws IOException {
         ArrayList<Members> members = new ArrayList<>();
 
-        FileReader cdb = new FileReader("src/CompetitionDatabase.txt");
+        FileReader cdb = new FileReader("src/DatabaseMember.txt");
         BufferedReader load = new BufferedReader(cdb);
 
         String line = load.readLine();
@@ -33,7 +33,7 @@ public class DatabaseMember {
     }
 
     public static void saveMembersToFile(ArrayList<Members> members) throws IOException {
-        FileWriter file = new FileWriter("src/DatabaseCompetition.txt", false);
+        FileWriter file = new FileWriter("src/DatabaseMember.txt", false);
         PrintWriter out = new PrintWriter(file);
 
         for (Members m : members) {
@@ -63,7 +63,7 @@ public class DatabaseMember {
             return;
         }
 
-        FileWriter writer = new FileWriter("src/DatabaseCompetition.txt", false);
+        FileWriter writer = new FileWriter("src/DatabaseMember.txt", false);
         PrintWriter dc = new PrintWriter(writer);
 
         for (Members m : members) {
