@@ -58,7 +58,14 @@ public class Members {
         }
 
         if (activity.equalsIgnoreCase("Active")) {
-
+            if (age<18) {
+                memberType = "Junior Member";
+            }
+            else if (age>18 && age<60) {
+                memberType = "Senior Member";
+            } else {
+                memberType = "Retied Member";
+                }
         }
         else {
             memberType="Passive";
@@ -78,6 +85,11 @@ public class Members {
         membersRegister.add(m);
 
         System.out.println("Member registered!");
+    }
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age +
+                ", Type: " + memberType + ", Paid: " + paid;
     }
 }
 
