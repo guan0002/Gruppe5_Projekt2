@@ -14,7 +14,7 @@ public class MainMenu {
                 String[] printMenus = {
                         "",
                         "Register a new member",
-                        "Example 3",
+                        "View member list",
                         "Example 4",
                         "Close the program",
                 };
