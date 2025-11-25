@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class CompetitionDatabase {
 
-    public static ArrayList<Member> loadDatabase() throws IOException {
-        ArrayList<Member> members = new ArrayList<>();
+    public static ArrayList<Members> loadDatabase() throws IOException {
+        ArrayList<Members> members = new ArrayList<>();
 
         FileReader cdb = new FileReader("src/CompetitionDatabase.txt");
         BufferedReader load = new BufferedReader(cdb);
