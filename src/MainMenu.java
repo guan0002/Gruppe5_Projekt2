@@ -33,6 +33,7 @@ public class MainMenu {
                     case 1:
                         Members members = new Members("", 0, "", "");
                         members.registerMember();
+                        break;
 
                     case 2:
                         MemberList.show();
