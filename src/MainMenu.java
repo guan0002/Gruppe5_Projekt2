@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-
-    public static void main(String[] args) {
+    public static void PrintMenus() {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
