@@ -1,0 +1,3 @@
+test,12,Junior Member,yes
+Igor,24,Senior Member,yes
+Mein Krank,654,Passive,no
