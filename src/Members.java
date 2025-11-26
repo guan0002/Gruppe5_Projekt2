@@ -76,7 +76,6 @@ public class Members {
 
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
-
         System.out.println("Member registered!");
 
         System.out.println("Press 0 to go back to the menu.");
