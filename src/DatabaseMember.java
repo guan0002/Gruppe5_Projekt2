@@ -23,7 +23,7 @@ public class DatabaseMember {
             String memberType = entry[2];
             String paid = entry[3];
 
-            Members m = new Members(name, age, memberType, paid);
+            Members m = new Members(name, Integer.parseInt(age), memberType, paid);
             members.add(m);
 
             line = load.readLine();
@@ -42,6 +42,16 @@ public class DatabaseMember {
 
         out.close();
     }
+
+    //opdaterer kunde i customerDatabase.txt
+    static void saveMembers(Members m) throws IOException {
+        FileWriter file = new FileWriter("src/customerDatabase.txt", true);
+        PrintWriter updateList = new PrintWriter(file);
+
+        updateList.println(m.toString());
+        updateList.close();
+    }
+
 
     public static Members findMemberByName(String name) throws IOException {
         ArrayList<Members> members = loadDatabase();
@@ -72,5 +82,7 @@ public class DatabaseMember {
         dc.close();
         System.out.println("Member deleted: " + name);
     }
+
+
 }
 

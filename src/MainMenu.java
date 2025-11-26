@@ -1,9 +1,18 @@
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMenu {
+
+    ArrayList<Members> loaded = DatabaseMember.loadDatabase();
+
+
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void PrintMenus() {
+    public MainMenu() throws IOException {
+    }
+
+    public static void PrintMenus() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
@@ -36,7 +45,10 @@ public class MainMenu {
                         break;
 
                     case 2:
-                        MemberList.show();
+                        ArrayList<Members> loaded = DatabaseMember.loadDatabase();
+                        for (Members m : loaded) {
+                            System.out.println(m.memberDisplay()); // this calls m.toString()
+                        }
                         break;
 
                     case 3:

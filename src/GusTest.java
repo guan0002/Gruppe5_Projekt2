@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GusTest {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         boolean run = true;

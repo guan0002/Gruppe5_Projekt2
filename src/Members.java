@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class Members {
 
     }
 
-    public void registerMember() {
+    public void registerMember() throws IOException {
         Scanner input = new Scanner(System.in);
 
         boolean correctIntFormat = false;
@@ -83,6 +84,8 @@ public class Members {
 
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
+        DatabaseMember.saveMembersToFile(Members.membersRegister);
+
 
         System.out.println("Member registered!");
 
@@ -96,8 +99,15 @@ public class Members {
     }
     @Override
     public String toString() {
-        return "Name: " + name + ", Age: " + age +
-                ", Type: " + memberType + ", Paid: " + paid;
+        return name + "," + age + "," + memberType + "," + paid;
     }
+    public String memberDisplay() {
+        return "Name: " + name +
+                " Age: " + age +
+                " Type: " + memberType +
+                " Paid: " + paid ;
+    }
+
+
 }
 

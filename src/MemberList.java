@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MemberList {
 
-    public static void show() {
+    public static void show(){
+
 
         Scanner input = MainMenu.scanner;
 
