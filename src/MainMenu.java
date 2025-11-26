@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    ArrayList<Members> loaded = DatabaseMember.loadDatabase();
+
 
 
     public static Scanner scanner = new Scanner(System.in);
