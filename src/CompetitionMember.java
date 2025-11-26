@@ -43,5 +43,11 @@ public class CompetitionMember extends Members {
         }
     }
 
+    public static void printcompetition() {
+        System.out.println("Junior competition:");
+        for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
 
+        System.out.println("Senior competition");
+        for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
+    }
 }

@@ -84,11 +84,31 @@ public class Members {
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
         System.out.println("Member registered!");
+
+        System.out.println("Is the swimmer a exerciser or a competition?(Write exerciser or competition)");
+        String swimType = input.nextLine();
+
+        if (swimType.equalsIgnoreCase("Competition")){
+            CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competition");
+            boolean added = cm.tryAddToCompetition();
+
+            if (added) {
+                System.out.println("Competition swimmer are now added to the list!");
+            } else {
+                System.out.println("Only active members with the certain age can be added to the list");
+            }
+        }
     }
     @Override
     public String toString() {
         return "Name: " + name + ", Age: " + age +
                 ", Type: " + memberType + ", Paid: " + paid;
+    }
+    public String memberDisplay() {
+        return "Name: " + name +
+                " Age: " + age +
+                " Type: " + memberType +
+                " Paid: " + paid ;
     }
 }
 
