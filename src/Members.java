@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -18,7 +17,7 @@ public class Members {
 
     }
 
-    public void registerMember() throws IOException {
+    public void registerMember() {
         Scanner input = new Scanner(System.in);
 
         boolean correctIntFormat = false;
@@ -84,22 +83,26 @@ public class Members {
 
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
-        DatabaseMember.saveMembersToFile(Members.membersRegister);
-
-
         System.out.println("Member registered!");
 
-        System.out.println("Press 0 to go back to the menu.");
+        System.out.println("Is the swimmer a exerciser or a competition?(Write exerciser or competition)");
+        String swimType = input.nextLine();
 
-        while (true) {
-            int choice = input.nextInt();
-            if (choice == 0) break;
-            System.out.println("Press 0 to go back to the menu.");
+        if (swimType.equalsIgnoreCase("Competition")){
+            CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competition");
+            boolean added = cm.tryAddToCompetition();
+
+            if (added) {
+                System.out.println("Competition swimmer are now added to the list!");
+            } else {
+                System.out.println("Only active members with the certain age can be added to the list");
+            }
         }
     }
     @Override
     public String toString() {
-        return name + "," + age + "," + memberType + "," + paid;
+        return "Name: " + name + ", Age: " + age +
+                ", Type: " + memberType + ", Paid: " + paid;
     }
     public String memberDisplay() {
         return "Name: " + name +
@@ -107,7 +110,5 @@ public class Members {
                 " Type: " + memberType +
                 " Paid: " + paid ;
     }
-
-
 }
 
