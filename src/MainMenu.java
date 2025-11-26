@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainMenu {
 
-    public static void PrintMenus() {
+    public static void PrintMenus() throws IOException {
 
         boolean run = true;
 
