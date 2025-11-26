@@ -1,5 +1,4 @@
-/*import java.io.*;
-
+import java.io.*;
 import java.util.ArrayList;
 
 public class DatabaseCompetition {
@@ -24,7 +23,7 @@ public class DatabaseCompetition {
             String memberType = entry[2];
             String paid = entry[3];
 
-            Member m = new Member(name, age, memberType, paid);
+            Members m = new Members(name, Integer.parseInt(age), memberType, paid);
             members.add(m);
 
             line = load.readLine();
@@ -33,21 +32,31 @@ public class DatabaseCompetition {
         return members;
     }
 
-    public static void saveMembersToFile(ArrayList<Member> members) throws IOException {
+    public static void saveMembersToFile(ArrayList<Members> members) throws IOException {
         FileWriter file = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter out = new PrintWriter(file);
 
-        for (Member m : members) {
+        for (Members m : members) {
             out.println(m.toString());
         }
 
         out.close();
     }
 
-    public static Member findMemberByName(String name) throws IOException {
-        ArrayList<Member> members = loadDatabase();
+    //opdaterer kunde i customerDatabase.txt
+    static void saveMembers(Members m) throws IOException {
+        FileWriter file = new FileWriter("src/DatabaseCompetition.txt", true);
+        PrintWriter updateList = new PrintWriter(file);
 
-        for (Member m : members) {
+        updateList.println(m.toString());
+        updateList.close();
+    }
+
+
+    public static Members findMemberByName(String name) throws IOException {
+        ArrayList<Members> members = loadDatabase();
+
+        for (Members m : members) {
             if (m.name.equalsIgnoreCase(name)) {
                 return m;
             }
@@ -56,7 +65,7 @@ public class DatabaseCompetition {
     }
 
     public static void deleteMember(String name) throws IOException {
-        ArrayList<Member> members = loadDatabase();
+        ArrayList<Members> members = loadDatabase();
         boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));
 
         if (!removed) {
@@ -67,11 +76,13 @@ public class DatabaseCompetition {
         FileWriter writer = new FileWriter("src/DatabaseCompetition.txt", false);
         PrintWriter dc = new PrintWriter(writer);
 
-        for (Member m : members) {
+        for (Members m : members) {
             dc.println(m.toString());
         }
         dc.close();
         System.out.println("Member deleted: " + name);
     }
+
+
 }
-*/
+
