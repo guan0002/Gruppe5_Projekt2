@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,13 +18,14 @@ public class Members {
 
     }
 
-    public void registerMember() {
+    public void registerMember() throws IOException {
         Scanner input = new Scanner(System.in);
 
         boolean correctIntFormat = false;
         boolean correctActivity = false;
         boolean correctMemberType = false;
         boolean correctPaid = false;
+        boolean backToMenu = false;
 
         String name;
         int age = 0;
@@ -76,6 +78,8 @@ public class Members {
 
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
+        DatabaseMember.saveMembersToFile(Members.membersRegister);
+
         System.out.println("Member registered!");
 
         System.out.println("Press 0 to go back to the menu.");
@@ -84,6 +88,15 @@ public class Members {
             int choice = input.nextInt();
             if (choice == 0) break;
             System.out.println("Press 0 to go back to the menu.");
+        }
+        System.out.println("Press 0 to get back to the menu");
+        while(!backToMenu){
+            int back = input.nextInt();
+            if (back == 0) {
+                backToMenu = true;
+            } else {
+                System.out.println("Press 0 to get back to the menu");
+            }
         }
     }
 
