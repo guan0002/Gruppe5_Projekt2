@@ -10,7 +10,6 @@ public class MainMenu {
         {
             while (run) {
                 System.out.println("Welcome to your booking system!\n");
-                System.out.println("Press 0 to go back the main menu!\n");
 
                 String[] printMenus = {
                         "",
