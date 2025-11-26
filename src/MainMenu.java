@@ -14,7 +14,7 @@ public class MainMenu {
                     "",
                     "Register a new member",
                     "View member list",
-                    "Example 4",
+                    "View competition list",
                     "Close the program",
             };
 
@@ -55,7 +55,7 @@ public class MainMenu {
                     break;
 
                 case 3:
-                    //Metode her
+                    CompetitionMember.printcompetition();
                     break;
 
                 case 4:
