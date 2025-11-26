@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 public class MemberList {
 
-
-
     public static void show() {
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = MainMenu.scanner;
 
         System.out.println("Member List:");
 
@@ -14,12 +12,10 @@ public class MemberList {
             System.out.println(m);
         }
 
-        System.out.println("Press 0 to go back to the menu.");
+        System.out.println("\nPress 0 to go back to the menu.");
 
-        while (true) {
-            int choice = input.nextInt();
-            if (choice == 0) break;
-            System.out.println("Press 0 to go back to the menu.");
-        }
+        int choice = input.nextInt();
+        input.nextLine();
+
     }
 }

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class MainMenu {
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void PrintMenus() {
 
@@ -9,7 +10,6 @@ public class MainMenu {
         {
             while (run) {
                 System.out.println("Welcome to your booking system!\n");
-                System.out.println("Press 0 to go back the main menu!\n");
 
                 String[] printMenus = {
                         "",
@@ -33,6 +33,7 @@ public class MainMenu {
                     case 1:
                         Members members = new Members("", 0, "", "");
                         members.registerMember();
+                        break;
 
                     case 2:
                         MemberList.show();
