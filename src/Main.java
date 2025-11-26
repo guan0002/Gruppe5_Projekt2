@@ -3,6 +3,13 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        try {
+            Members.membersRegister = DatabaseMember.loadDatabase();
+        } catch (IOException e) {
+            System.out.println("Failed to load members database.");
+            e.printStackTrace();
+        }
+
         MainMenu.PrintMenus();
 
     }
