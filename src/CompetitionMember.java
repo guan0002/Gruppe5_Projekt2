@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class CompetitionMember extends Members {
 
     private String swimType;
-    ArrayList<CompetitionMember> juniorCompetitionList = new ArrayList<>();
-    ArrayList<CompetitionMember> seniorCompetitionList = new ArrayList<>();
+    static ArrayList<CompetitionMember> juniorCompetitionList = new ArrayList<>();
+    static ArrayList<CompetitionMember> seniorCompetitionList = new ArrayList<>();
 
     public CompetitionMember(String name, int age, String memberType, String paid, String swimType) {
         super(name, age, memberType, paid);
@@ -12,7 +12,7 @@ public class CompetitionMember extends Members {
     }
 
     public String getSwimType() {
-        return swimType = "";
+        return swimType;
     }
 
     @Override
@@ -21,9 +21,8 @@ public class CompetitionMember extends Members {
     }
 
     public boolean tryAddToCompetition() {
-        String mt = this.memberType == null ? "" : this.memberType;
 
-        if (mt.equalsIgnoreCase("Passive") || mt.toLowerCase().contains("retired")) {
+        if (memberType.equalsIgnoreCase("Passive") || memberType.toLowerCase().contains("retired")) {
             return false;
         }
 
@@ -43,4 +42,6 @@ public class CompetitionMember extends Members {
             return false;
         }
     }
+
+
 }

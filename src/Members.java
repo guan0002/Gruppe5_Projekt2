@@ -83,7 +83,6 @@ public class Members {
 
         Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
-
         System.out.println("Member registered!");
     }
     @Override
