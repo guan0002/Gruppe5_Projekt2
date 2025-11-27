@@ -45,12 +45,20 @@ public class CompetitionMember extends Members {
     public static void printcompetition() {
         Scanner input = new Scanner(System.in);
         boolean backToMenu = false;
-        System.out.println("Junior competition:");
-        for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
 
-        System.out.println("Senior competition");
-        for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
-        System.out.println("Press 0 to get back to the menu");
+
+        if (Members.membersRegister.isEmpty()) {
+            System.out.println("No members have been registered yet.");
+
+        }
+        else {
+            System.out.println("Junior competition:");
+            for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
+
+            System.out.println("Senior competition");
+            for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
+            System.out.println("Press 0 to get back to the menu");
+        }
         while (!backToMenu) {
             int back = input.nextInt();
             if (back == 0) {
