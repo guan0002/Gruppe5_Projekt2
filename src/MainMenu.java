@@ -9,7 +9,6 @@ public class MainMenu {
 
         while (run) {
             System.out.println("Welcome to your booking system!\n");
-            System.out.println("Press 0 to go back to the main menu\n");
 
             String[] printMenus = {
                     "",
@@ -57,7 +56,9 @@ public class MainMenu {
 
                 case 3:
                     CompetitionMember.printcompetition();
+                    System.out.println("Press 0 to get back to the menu");
                     break;
+
 
                 case 4:
                     System.out.println("Closing the program");
