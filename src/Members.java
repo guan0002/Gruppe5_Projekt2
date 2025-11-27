@@ -113,7 +113,7 @@ public class Members {
                 System.out.println("Only active members within the allowed age range can be added to the list.");
             }
         } else if (swimType.equalsIgnoreCase("recreational")) {
-            System.out.println("The member is now registred as a recreational swimmer");
+            System.out.println("The member is now registered as a recreational swimmer");
         } else {
             System.out.println("Invalid input — please write exerciser or competition");
         }
