@@ -49,13 +49,13 @@ public class Members {
         }
 
         while(!correctActivity) {
-            System.out.println("Are the membership, active or passive?");
+            System.out.println("Is the membership active or passive?");
             activity=input.nextLine();
             if(activity.equalsIgnoreCase("Active") || activity.equalsIgnoreCase("Passive")) {
                 correctActivity=true;
             }
             else {
-                System.out.println("you have to write either 'Active' or 'Passive'!!!");
+                System.out.println("Please write either 'Active' or 'Passive'.");
             }
         }
 
@@ -66,7 +66,7 @@ public class Members {
             else if (age>18 && age<60) {
                 memberType = "Senior Member";
             } else {
-                memberType = "Retied Member";
+                memberType = "Elder Member";
                 }
         }
         else {
@@ -74,12 +74,12 @@ public class Members {
         }
 
         while (!correctPaid) {
-            System.out.println("Write yes if the member has paid or no for not paid");
+            System.out.println("Has the member paid? Type 'yes' or 'no'.");
             paid = input.nextLine();
             if (paid.equalsIgnoreCase("Yes") || paid.equalsIgnoreCase("No")) {
                 correctPaid = true;
             } else {
-                System.out.println("You have to write yes or no");
+                System.out.println("You must write either yes or no");
             }
         }
 
@@ -89,17 +89,17 @@ public class Members {
 
         System.out.println("Member registered!");
 
-        System.out.println("Is the swimmer a exerciser or a competition?(Write exerciser or competition)");
+        System.out.println("Is the member a recreational or competitive swimmer?");
         String swimType = input.nextLine();
 
-        if (swimType.equalsIgnoreCase("Competition")){
-            CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competition");
+        if (swimType.equalsIgnoreCase("Competitive")){
+            CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competitive");
             boolean added = cm.tryAddToCompetition();
 
             if (added) {
-                System.out.println("Competition swimmer are now added to the list!");
+                System.out.println("The member is now registered as a competitive swimmer!");
             } else {
-                System.out.println("Only active members with the certain age can be added to the list");
+                System.out.println("Only active members within the allowed age range can be added to the list.");
             }
         }
         System.out.println("Press 0 to get back to the menu");
@@ -114,9 +114,9 @@ public class Members {
     }
     @Override
     public String toString() {
-        return "Name: " + name + ", Age: " + age +
-                ", Type: " + memberType + ", Paid: " + paid;
+        return name + "," + age + "," + memberType + "," + paid;
     }
+
     public String memberDisplay() {
         return "Name: " + name +
                 " Age: " + age +
