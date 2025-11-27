@@ -27,7 +27,7 @@ public class CompetitionMember extends Members {
             return false;
         }
 
-        if (!this.swimType.equalsIgnoreCase("Competition")) {
+        if (!this.swimType.equalsIgnoreCase("Competitive")) {
             return false;
         }
 
