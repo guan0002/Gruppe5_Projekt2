@@ -85,16 +85,28 @@ public class Members {
         membersRegister.add(m);
         DatabaseMember.saveMembersToFile(Members.membersRegister);
 
-        System.out.println("Member registered!");
-
         while (!choiceTeam) {
             System.out.println("Does the member want to join a team? Type 'yes' or 'no'.");
             String team = input.nextLine();
             if (team.equalsIgnoreCase("Yes"))
                 choiceTeam = true;
             else if (team.equalsIgnoreCase("No")) {
-                System.out.println("You are retured to the menu");
-                return;
+                System.out.println("The member is now registered.");
+                while (true) {
+                    System.out.println("Press 0 to get back to the menu:");
+                    if (input.hasNextInt()) {
+                        int back = input.nextInt();
+                        input.nextLine();
+                        if (back == 0)
+                            return;
+                        else
+                            System.out.println("Invalid number. Press 0 to go back.");
+                    } else {
+                        System.out.println("Invalid input. Please enter a number.");
+                        input.nextLine();
+                    }
+                }
+
             } else {
                 System.out.println("Invalid input — please write yes or no");
             }

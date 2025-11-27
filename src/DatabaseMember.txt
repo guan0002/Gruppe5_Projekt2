@@ -1,0 +1,12 @@
+test,12,Junior Member,yes
+test1,13,Junior Member,yes
+test3,16,Junior Member,yes
+test3,58,Senior Member,yes
+test5,49,Passive,no
+test7,40,Senior Member,yes
+test8,39,Senior Member,yes
+igor,56,Senior Member,yes
+1,23,Senior Member,yes
+2,23,Senior Member,yes
+3,234,Elder Member,yes
+tes,23,Senior Member,yes
