@@ -8,9 +8,15 @@ public static int ReadInt(String prompt) {
 while (true) {
     System.out.println(prompt);
     String line = scanner.nextLine().trim();
-
     try {
-        return Integer.parseInt(line);
+        int value = Integer.parseInt(line);
+
+        if (value < 0) {
+            System.out.println("Please enter a positive integer");
+            continue;
+        }
+        return value;
+
     } catch (NumberFormatException e) {
         System.out.println("Invalid Input! Please type a number");
     }
