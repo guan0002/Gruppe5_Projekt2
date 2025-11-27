@@ -56,7 +56,6 @@ public class MainMenu {
 
                 case 3:
                     CompetitionMember.printcompetition();
-                    System.out.println("Press 0 to get back to the menu");
                     break;
 
 
