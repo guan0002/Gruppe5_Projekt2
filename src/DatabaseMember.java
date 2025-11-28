@@ -44,16 +44,16 @@ public class DatabaseMember {
     }
 
     //opdaterer kunde i customerDatabase.txt
-    static void saveMembers(Members m) throws IOException {
+/*    static void saveMembers(Members m) throws IOException {
         FileWriter file = new FileWriter("src/customerDatabase.txt", true);
         PrintWriter updateList = new PrintWriter(file);
 
         updateList.println(m.toString());
         updateList.close();
     }
+*/
 
-
-    public static Members findMemberByName(String name) throws IOException {
+/*    public static Members findMemberByName(String name) throws IOException {
         ArrayList<Members> members = loadDatabase();
 
         for (Members m : members) {
@@ -63,8 +63,8 @@ public class DatabaseMember {
         }
         return null;
     }
-
-    public static void deleteMember(String name) throws IOException {
+*/
+/*    public static void deleteMember(String name) throws IOException {
         ArrayList<Members> members = loadDatabase();
         boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));
 
@@ -82,6 +82,7 @@ public class DatabaseMember {
         dc.close();
         System.out.println("Member deleted: " + name);
     }
+ */
 
 
 }
