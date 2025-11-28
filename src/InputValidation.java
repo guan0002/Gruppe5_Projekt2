@@ -23,7 +23,7 @@ while (true) {
 }
  }
 
- public static String  ReadString(String prompt) {
+ public static String ReadString(String prompt) {
     while (true) {
         System.out.println(prompt);
         String input = scanner.nextLine().trim();
