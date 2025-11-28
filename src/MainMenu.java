@@ -32,7 +32,7 @@ public class MainMenu {
                     break;
 
                 case 1:
-                    Members members = new Members("", 0, "", "");
+                    Members members = new Members("", 0, "", "", "");
                     members.registerMember();
                     break;
 
