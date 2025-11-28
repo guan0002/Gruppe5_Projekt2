@@ -81,7 +81,7 @@ public class Members {
             }
         }
 
-        Members m = new Members(name, age, memberType, paid, swimType);
+        Members m = new Members(name, age, memberType, paid);
         membersRegister.add(m);
         DatabaseMember.saveMembersToFile(Members.membersRegister);
 
