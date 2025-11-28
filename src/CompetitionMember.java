@@ -8,8 +8,8 @@ public class CompetitionMember extends Members {
     static ArrayList<CompetitionMember> seniorCompetitionList = new ArrayList<>();
 
     public CompetitionMember(String name, int age, String memberType, String paid, String swimType) {
-        super(name, age, memberType, paid);
-        this.swimType = swimType;
+        super(name, age, memberType, paid, swimType);
+        this.swimType=swimType;
     }
 
     public String getSwimType() {
