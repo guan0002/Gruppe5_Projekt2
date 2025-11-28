@@ -8,13 +8,15 @@ public class Members {
     int age;
     String memberType;
     String paid;
+    String swimType;
     public static ArrayList<Members> membersRegister = new ArrayList<>();
 
-    public Members(String name, int age, String memberType, String paid) {
+    public Members(String name, int age, String memberType, String paid, String swimType) {
         this.name = name;
         this.age = age;
         this.memberType = memberType;
         this.paid=paid;
+        this.swimType=swimType;
 
     }
 
@@ -81,10 +83,6 @@ public class Members {
             }
         }
 
-        Members m = new Members(name, age, memberType, paid);
-        membersRegister.add(m);
-        DatabaseMember.saveMembersToFile(Members.membersRegister);
-
         while (!choiceTeam) {
             System.out.println("Does the member want to join a team? Type 'yes' or 'no'.");
             String team = input.nextLine();
@@ -115,6 +113,10 @@ public class Members {
         System.out.println("Is the member a recreational or competitive swimmer?");
         String swimType = input.nextLine();
 
+        Members m = new Members(name, age, memberType, paid, swimType);
+        membersRegister.add(m);
+        DatabaseMember.saveMembersToFile(Members.membersRegister);
+
         if (swimType.equalsIgnoreCase("Competitive")) {
             CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competitive");
             boolean added = cm.tryAddToCompetition();
@@ -142,14 +144,15 @@ public class Members {
     }
     @Override
     public String toString() {
-        return name + "," + age + "," + memberType + "," + paid;
+        return name + "," + age + "," + memberType + "," + paid + "," + swimType;
     }
 
     public String memberDisplay() {
         return "Name: " + name +
                 " Age: " + age +
                 " Type: " + memberType +
-                " Paid: " + paid ;
+                " Paid: " + paid +
+                " SwimType " + swimType;
     }
 }
 
