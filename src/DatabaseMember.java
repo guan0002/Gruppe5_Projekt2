@@ -22,8 +22,9 @@ public class DatabaseMember {
             String age = entry[1];
             String memberType = entry[2];
             String paid = entry[3];
+            String swimType = entry.length >= 5 ? entry[4] : "Recreational";
 
-            Members m = new Members(name, Integer.parseInt(age), memberType, paid);
+            Members m = new Members(name, Integer.parseInt(age), memberType, paid, swimType);
             members.add(m);
 
             line = load.readLine();
