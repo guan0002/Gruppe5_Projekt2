@@ -8,13 +8,15 @@ public class Members {
     int age;
     String memberType;
     String paid;
+    String swimType;
     public static ArrayList<Members> membersRegister = new ArrayList<>();
 
-    public Members(String name, int age, String memberType, String paid) {
+    public Members(String name, int age, String memberType, String paid, String swimType) {
         this.name = name;
         this.age = age;
         this.memberType = memberType;
         this.paid=paid;
+        this.swimType=swimType;
 
     }
 
@@ -81,10 +83,6 @@ public class Members {
             }
         }
 
-        Members m = new Members(name, age, memberType, paid);
-        membersRegister.add(m);
-        DatabaseMember.saveMembersToFile(Members.membersRegister);
-
         System.out.println("Member registered!");
 
         while (!choiceTeam) {
@@ -103,6 +101,10 @@ public class Members {
         System.out.println("Is the member a recreational or competitive swimmer?");
         String swimType = input.nextLine();
 
+        Members m = new Members(name, age, memberType, paid, swimType);
+        membersRegister.add(m);
+        DatabaseMember.saveMembersToFile(Members.membersRegister);
+
         if (swimType.equalsIgnoreCase("Competitive")) {
             CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competitive");
             boolean added = cm.tryAddToCompetition();
@@ -115,7 +117,7 @@ public class Members {
         } else if (swimType.equalsIgnoreCase("recreational")) {
             System.out.println("The member is now registred as a recreational swimmer");
         } else {
-            System.out.println("Invalid input — please write exerciser or competition");
+            System.out.println("Invalid input — please write recreational or competition");
         }
 
         System.out.println("Press 0 to get back to the menu");
@@ -130,14 +132,15 @@ public class Members {
     }
     @Override
     public String toString() {
-        return name + "," + age + "," + memberType + "," + paid;
+        return name + "," + age + "," + memberType + "," + paid + "," + swimType;
     }
 
     public String memberDisplay() {
         return "Name: " + name +
                 " Age: " + age +
                 " Type: " + memberType +
-                " Paid: " + paid ;
+                " Paid: " + paid +
+                " swimType: " + swimType;
     }
 }
 
