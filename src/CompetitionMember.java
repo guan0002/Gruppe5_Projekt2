@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CompetitionMember extends Members {
 
@@ -26,28 +27,46 @@ public class CompetitionMember extends Members {
             return false;
         }
 
-        if (!this.swimType.equalsIgnoreCase("Competition")) {
+        if (!this.swimType.equalsIgnoreCase("Competitive")) {
             return false;
         }
 
         if (this.age < 18) {
             juniorCompetitionList.add(this);
             return true;
-        }
-        else if (this.age>=18 && this.age<60){
+        } else if (this.age >= 18 && this.age < 60) {
             seniorCompetitionList.add(this);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     public static void printcompetition() {
-        System.out.println("Junior competition:");
-        for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
+        Scanner input = new Scanner(System.in);
+        boolean backToMenu = false;
 
-        System.out.println("Senior competition");
-        for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
+
+        if (Members.membersRegister.isEmpty()) {
+            System.out.println("No members have been registered yet.");
+
+        }
+        else {
+            System.out.println("Junior competition:");
+            for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
+
+            System.out.println("Senior competition");
+            for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
+        }
+        System.out.println("Press 0 to get back to the menu");
+        while (!backToMenu) {
+            int back = input.nextInt();
+            input.nextLine();
+            if (back == 0) {
+                backToMenu = true;
+            } else {
+                System.out.println("Press 0 to get back to the menu");
+            }
+        }
     }
 }
