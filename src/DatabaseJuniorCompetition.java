@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class DatabaseCompetition {
+public class DatabaseJuniorCompetition {
 
     public static ArrayList<Members> loadDatabase() throws IOException {
         ArrayList<Members> members = new ArrayList<>();
