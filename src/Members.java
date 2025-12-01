@@ -65,8 +65,8 @@ public class Members {
         while (true) {
             String team = InputValidation.ReadString("Does the member want to join a team? Type 'yes' or 'no'.");
             if (team.equalsIgnoreCase("Yes")) {
-
                 break;
+
             } else if (team.equalsIgnoreCase("No")) {
                 System.out.println("The member is now registered.");
 
@@ -111,7 +111,7 @@ public class Members {
             if (back == 0) {
                 break;
             } else {
-                System.out.println("Press 0 to get back to the menu.");
+                System.out.println("Invalid Input! Please try again");
             }
         }
     }
