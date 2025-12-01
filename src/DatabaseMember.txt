@@ -1,15 +1,1 @@
-test,12,Junior Member,yes,Unknown
-test1,13,Junior Member,yes,Unknown
-test3,16,Junior Member,yes,Unknown
-test3,58,Senior Member,yes,Unknown
-test5,49,Passive,no,Unknown
-test7,40,Senior Member,yes,Unknown
-test8,39,Senior Member,yes,Unknown
-igor,56,Senior Member,yes,Unknown
-1,23,Senior Member,yes,Unknown
-2,23,Senior Member,yes,Unknown
-3,234,Elder Member,yes,Unknown
-tes,23,Senior Member,yes,Unknown
-Malik,20,Senior Member,yes,competitive
-Malik,20,Senior Member,yes,competitive
-Mathias,24,Senior Member,yes,recreational
+
