@@ -22,7 +22,6 @@ public class Members {
         Scanner input = InputValidation.scanner;
 
         String name = InputValidation.ReadString("Write member name");
-
         int age = InputValidation.ReadInt("Write age");
 
         String activity;
@@ -128,6 +127,7 @@ public class Members {
                 " Type: " + memberType +
                 " Paid: " + paid +
                 " SwimType " + swimType;
+
     }
 }
 
