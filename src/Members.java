@@ -98,12 +98,12 @@ public class Members {
             boolean added = cm.tryAddToCompetition();
 
             if (added) {
-                System.out.println("The member is now registered as a competitive swimmer!");
+                System.out.println("The member " + "\u001B[1m" + name + "\u001B[0m" + " is now registered as a competitive swimmer!");
             } else {
                 System.out.println("Only active members within the allowed age range can be added to the list.");
             }
         } else {
-            System.out.println("The member is now registered as a recreational swimmer.");
+            System.out.println("The member " + "\u001B[1m" + name + "\u001B[0m" + " is now registered as a recreational swimmer.");
         }
 
         while (true) {
