@@ -100,7 +100,7 @@ public class Members {
             if (added) {
                 System.out.println("The member is now registered as a competitive swimmer!");
 
-                DatabaseCompetitionMember.saveCompetitionMembers();
+                DatabaseCompetitionMember.saveCompetitionDatabase();
 
             } else {
                 System.out.println("Only active members within the allowed age range can be added to the list.");

@@ -11,6 +11,12 @@ public class Main {
             e.printStackTrace();
         }
 
+        try {
+            DatabaseMember.loadCompetitionDatabase();
+        } catch (IOException e) {
+            System.out.println("Failed to load competition database.");
+        }
+
         MainMenu.PrintMenus();
 
     }

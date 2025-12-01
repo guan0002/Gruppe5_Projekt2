@@ -44,6 +44,58 @@ public class DatabaseMember {
         out.close();
     }
 
+    // ------------------------------------------------------------------------------
+
+    public static void loadCompetitionDatabase() throws IOException {
+
+
+        try (BufferedReader br = new BufferedReader(new FileReader("src/juniorCompetition.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                String[] entry = line.split(",");
+                if (entry.length < 5) continue;
+
+                String name = entry[0];
+                int age = Integer.parseInt(entry[1]);
+                String memberType = entry[2];
+                String paid = entry[3];
+                String swimType = entry[4];
+
+                CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, swimType);
+                CompetitionMember.juniorCompetitionList.add(cm);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("juniorCompetition.txt not found yet.");
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader("src/seniorCompetition.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                String[] entry = line.split(",");
+                if (entry.length < 5) continue;
+
+                String name = entry[0];
+                int age = Integer.parseInt(entry[1]);
+                String memberType = entry[2];
+                String paid = entry[3];
+                String swimType = entry[4];
+
+                CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, swimType);
+                CompetitionMember.seniorCompetitionList.add(cm);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("seniorCompetition.txt not found yet.");
+        }
+
+        System.out.println("Competition database loaded.");
+    }
+
+
+    // ------------------------------------------------------------------------------
+
+
     //opdaterer kunde i customerDatabase.txt
     static void saveMembers(Members m) throws IOException {
         FileWriter file = new FileWriter("src/customerDatabase.txt", true);

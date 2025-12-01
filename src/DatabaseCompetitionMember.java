@@ -1,28 +1,26 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class DatabaseCompetitionMember {
 
-    public static void saveCompetitionMembers() {
+    public static void saveCompetitionDatabase() throws IOException {
 
-
-        try (FileWriter writer = new FileWriter("src/juniorCompetition.txt")) {
+        // --- Save Juniors ---
+        try (PrintWriter out = new PrintWriter(new FileWriter("src/juniorCompetition.txt"))) {
             for (CompetitionMember cm : CompetitionMember.juniorCompetitionList) {
-                writer.write(cm.toString() + "\n");
+                out.println(cm.toString());
             }
-            System.out.println("Junior competition list saved.");
-        } catch (IOException e) {
-            System.out.println("Error writing junior competition file.");
         }
 
-
-        try (FileWriter writer = new FileWriter("src/seniorCompetition.txt")) {
+        // --- Save Seniors ---
+        try (PrintWriter out = new PrintWriter(new FileWriter("src/seniorCompetition.txt"))) {
             for (CompetitionMember cm : CompetitionMember.seniorCompetitionList) {
-                writer.write(cm.toString() + "\n");
+                out.println(cm.toString());
             }
-            System.out.println("Senior competition list saved.");
-        } catch (IOException e) {
-            System.out.println("Error writing senior competition file.");
         }
+
+        System.out.println("Competition database saved.");
     }
+
 }
