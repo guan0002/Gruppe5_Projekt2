@@ -1,30 +1,38 @@
+import java.lang.reflect.Member;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class SwimDicipline {
+public class SwimEvent {
 
     String diciplineType;
-    String event;
+    String name;
     int rank;
     double time;
     LocalDate date;
 
-    public SwimDicipline(String diciplineType, String event, int rank, double time, LocalDate date) {
+    public SwimEvent(String name, String diciplineType, int rank, double time, LocalDate date) {
         this.diciplineType=diciplineType;
-        this.event=event;
+        this.name=name;
         this.rank=rank;
         this.time=time;
         this.date=date;
     }
 
-    public SwimDicipline registerDicipline() {
+    public SwimEvent registerEventMember() {
         Scanner input = new Scanner(System.in);
         boolean correctDicipline=false;
         diciplineType="";
-        event="";
+        name="";
         rank=0;
         time=0.0;
         date = null;
+        String member;
+
+        System.out.println("Which Competition Member would you like to add an event to?");
+         member = input.nextLine();
+        boolean added = CompetitionMember.addedIf(cm -> cm.name.equalsIgnoreCase(name));
+
+
 
         while(!correctDicipline)
         System.out.println("What is the dicipline?");
@@ -39,7 +47,7 @@ public class SwimDicipline {
         }
 
         System.out.println("What event was the dicipline performed at?");
-        event=input.nextLine();
+        name=input.nextLine();
 
         System.out.println("How did the competitor rank at the event?");
         rank=input.nextInt();
@@ -59,8 +67,10 @@ public class SwimDicipline {
             }
         }
 
-        SwimDicipline sd = new SwimDicipline(diciplineType, event, rank, time, date);
-        return sd;
+        SwimEvent event = new SwimEvent(name, diciplineType, rank, time, date);
+        return event;
     }
+
+
 
 }
