@@ -58,6 +58,7 @@ public class CompetitionMember extends Members {
             System.out.println("Senior competition");
             for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
         }
+
         System.out.println("Press 0 to get back to the menu");
         while (!backToMenu) {
             int back = input.nextInt();
