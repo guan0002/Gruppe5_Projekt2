@@ -9,6 +9,7 @@ public class Members {
     String memberType;
     String paid;
     public static ArrayList<Members> membersRegister = new ArrayList<>();
+    public ArrayList<SwimEvent> events = new ArrayList<>();
 
     public Members(String name, int age, String memberType, String paid) {
         this.name = name;
