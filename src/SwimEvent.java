@@ -4,141 +4,244 @@ import java.util.Scanner;
 
 public class SwimEvent {
 
-    static String memberName;
-    static String diciplineType;
-    static String name;
-    static int rank;
-    static double time;
-    static LocalDate date;
-    static ArrayList<SwimEvent> eventList = new ArrayList<>();
 
-    public SwimEvent(String memberName, String name, String diciplineType, int rank, double time, LocalDate date) {
-        this.diciplineType = diciplineType;
-        this.name = name;
-        this.rank = rank;
-        this.time = time;
+    public static ArrayList<SwimEvent> eventList = new ArrayList<>();
+    private ArrayList<EventMember> eventMembers = new ArrayList<>();
+
+
+    private String eventName;
+    private String discipline;
+    private String location;
+    private LocalDate date;
+
+    public SwimEvent(String eventName, String discipline, String location, LocalDate date) {
+        this.eventName = eventName;
+        this.discipline = discipline;
+        this.location = location;
         this.date = date;
-        this.memberName = memberName;
-    }
-
-    public static void registerEventMember() {
-        Scanner input = new Scanner(System.in);
-        boolean correctDicipline = false;
-        boolean oneMoreDicipline = false;
-        diciplineType = "";
-        name = "";
-        rank = 0;
-        time = 0.0;
-        date = null;
-        memberName = "";
-        String anotherEvent = "";
-
-        System.out.println("Choose your group...");
-        // læg printCompetition metoden ind her
-        memberName = input.nextLine();
-
-        while (!oneMoreDicipline) {
-            while (!correctDicipline) {
-                System.out.println("What is the dicipline?");
-                diciplineType = input.nextLine();
-                if (diciplineType.equalsIgnoreCase("Crawl") || diciplineType.equalsIgnoreCase("Breast Swim") ||
-                        diciplineType.equalsIgnoreCase("Back Swim") || diciplineType.equalsIgnoreCase("Butterfly")) {
-                    correctDicipline = true;
-                } else {
-                    System.out.println("Invalid swim dicipline! ⚠️ Please write one of the 4 dicipline options...");
-                    correctDicipline = false;
-                }
-            }
-
-            System.out.println("What event was the dicipline performed at?");
-            name = input.nextLine();
-
-            System.out.println("How did the competitor rank at the event?");
-            rank = input.nextInt();
-
-            System.out.println("What was the competitors time?");
-            time = input.nextDouble();
-
-            System.out.println("What was the date of the event?");
-            while (date == null) {
-                System.out.println("Please enter a date dd/mm/yyyy:");
-                String dateStr = input.nextLine();
-                try {
-                    java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    date = LocalDate.parse(dateStr, formatter);
-                } catch (java.time.format.DateTimeParseException e) {
-                    System.out.println("Invalid date format. Please try again.");
-                }
-            }
-
-            SwimEvent event = new SwimEvent(memberName, name, diciplineType, rank, time, date);
-            eventList.add(event);
-
-            System.out.println("Would you like to add another event?");
-            anotherEvent = input.nextLine();
-            if (anotherEvent.equalsIgnoreCase("Yes")) {
-                oneMoreDicipline = false;
-            } else if (anotherEvent.equalsIgnoreCase("No")) {
-                oneMoreDicipline = true;
-            } else {
-                System.out.println("Please write 'Yes' or 'No' only...");
-            }
-        }
 
     }
 
-    public String toString() {
-        return memberName + ":"
-                + name + " - " + diciplineType + " - " + rank + " - " + time + " - " + date;
-    }
-}
-
-
-  /*  public static void printDisciplineMenu() {
+    public static SwimEvent createEvent() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\nChoose a swim discipline");
-        System.out.println("1: Crawl");
-        System.out.println("2: Breast Swim");
-        System.out.println("3: Back Swim");
-        System.out.println("4: Butterfly");
-        System.out.println("0: Back to main menu");
+        System.out.print("Enter event name: ");
+        String eventName = input.nextLine();
 
-        int choice = input.nextInt();
-        input.nextLine();
+        System.out.print("Enter discipline: ");
+        String discipline = input.nextLine();
 
-        switch (choice) {
-            case 1:
-                System.out.println("You selected: Crawl");
-                break;
+        System.out.print("Enter event location: ");
+        String location = input.nextLine();
 
-            case 2:
-                System.out.println("You selected: Breast Swim");
-                break;
+        System.out.print("Enter date (YYYY-MM-DD): ");
+        LocalDate date = LocalDate.parse(input.nextLine());
 
-            case 3:
-                System.out.println("You selected: Back Swim");
-                break;
+        SwimEvent event = new SwimEvent(eventName, discipline, location, date);
 
-            case 4:
-                System.out.println("You selected: Butterfly");
-                break;
+        eventList.add(event);
 
-            case 0:
-                return;
+        System.out.println("Event saved!");
 
-            default:
-                System.out.println("Invalid input. Choose between 1-4");
-                return;
-        }
-
-        System.out.println("Press 0 to get back to the menu");
         while (true) {
-            int back = input.nextInt();
-            input.nextLine();
-            if (back == 0) return;
-            System.out.println("Press 0 to get back to the menu");
-            System.out.println("re-update");
+            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+            if (back == 0) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please press 0.");
+            }
+        }
+
+        return event;
+    }
+
+    public void editEvent() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\nEditing event:");
+        System.out.println(this);
+
+        System.out.print("Enter new event name (or press ENTER to keep \"" + eventName + "\"): ");
+        String newName = input.nextLine();
+        if (!newName.isEmpty()) {
+            this.eventName = newName;
+        }
+
+        System.out.print("Enter new discipline (or press ENTER to keep \"" + discipline + "\"): ");
+        String newDiscipline = input.nextLine();
+        if (!newDiscipline.isEmpty()) {
+            this.discipline = newDiscipline;
+        }
+
+        System.out.print("Enter new location (or press ENTER to keep \"" + location + "\"): ");
+        String newLocation = input.nextLine();
+        if (!newLocation.isEmpty()) {
+            this.location = newLocation;
+        }
+
+        System.out.print("Enter new date YYYY-MM-DD (or press ENTER to keep \"" + date + "\"): ");
+        String newDate = input.nextLine();
+        if (!newDate.isEmpty()) {
+            this.date = LocalDate.parse(newDate);
+        }
+
+        System.out.println("Event updated!");
+    }
+
+    public static void editEventMenu() {
+        if (eventList.isEmpty()) {
+            System.out.println("No events to edit!");
+            return;
+        }
+
+        System.out.println("\nChoose event to edit:");
+        for (int i = 0; i < eventList.size(); i++) {
+            System.out.println((i + 1) + ": " + eventList.get(i));
+        }
+
+        int choice = InputValidation.ReadInt("Enter event number: ") - 1;
+
+        if (choice < 0 || choice >= eventList.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        eventList.get(choice).editEvent();
+    }
+
+    public static class EventMember {
+        Members member;
+        double time;
+        int rank;
+
+        public EventMember(Members member) {
+            this.member = member;
+        }
+
+        @Override
+        public String toString() {
+            return member.name + " (" + member.age + " y) | Time: " + time + " | Rank: " + rank;
         }
     }
-} */
+
+    public static void addMemberToEvent() {
+        if (eventList.isEmpty()) {
+            System.out.println("No events available! Please create an event first.");
+            return;
+        }
+
+        System.out.println("Select event to add members to:");
+        for (int i = 0; i < eventList.size(); i++) {
+            System.out.println((i + 1) + ": " + eventList.get(i));
+        }
+
+        int eventChoice = InputValidation.ReadInt("Enter event number: ") - 1;
+
+        if (eventChoice < 0 || eventChoice >= eventList.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        SwimEvent selectedEvent = eventList.get(eventChoice);
+
+        ArrayList<Members> fileMembers = new ArrayList<>();
+        String[] files = {"src/juniorCompetition.txt", "src/seniorCompetition.txt"};
+
+        for (String fileName : files) {
+            try {
+                Scanner fileScanner = new Scanner(new java.io.File(fileName));
+                while (fileScanner.hasNextLine()) {
+                    String line = fileScanner.nextLine();
+                    String[] parts = line.split(",");
+                    if (parts.length >= 5) {
+                        String name = parts[0];
+                        int age = Integer.parseInt(parts[1]);
+                        String memberType = parts[2];
+                        String paid = parts[3];
+                        String swimType = parts[4];
+
+                        Members m = new Members(name, age, memberType, paid, swimType);
+                        fileMembers.add(m);
+                    }
+                }
+                fileScanner.close();
+            } catch (java.io.FileNotFoundException e) {
+                System.out.println("File not found: " + fileName);
+            }
+        }
+
+        if (fileMembers.isEmpty()) {
+            System.out.println("No registered members found in the files!");
+            return;
+        }
+
+        System.out.println("Members from file:");
+        for (int i = 0; i < fileMembers.size(); i++) {
+            System.out.println((i + 1) + ": " + fileMembers.get(i).memberDisplay());
+        }
+
+        int memberChoice = InputValidation.ReadInt("Enter member number to add: ") - 1;
+
+        if (memberChoice < 0 || memberChoice >= fileMembers.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        Members selectedMember = fileMembers.get(memberChoice);
+
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter swim time for " + selectedMember.name + ": ");
+        double time = input.nextDouble();
+        System.out.print("Enter swim rank for " + selectedMember.name + ": ");
+        int rank = input.nextInt();
+        input.nextLine(); // clear buffer
+
+        EventMember eventMember = new EventMember(selectedMember);
+        eventMember.time = time;
+        eventMember.rank = rank;
+
+        selectedEvent.eventMembers.add(eventMember);
+
+        System.out.println(selectedMember.name + " has been added to event " + selectedEvent.eventName);
+    }
+
+    public static void showEvent() {
+        if (eventList.isEmpty()) {
+            System.out.println("No events available!");
+            return;
+        }
+
+        System.out.println("Select event to view members:");
+        for (int i = 0; i < eventList.size(); i++) {
+            System.out.println((i + 1) + ": " + eventList.get(i));
+        }
+
+        int eventChoice = InputValidation.ReadInt("Enter event number: ") - 1;
+        if (eventChoice < 0 || eventChoice >= eventList.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        SwimEvent selectedEvent = eventList.get(eventChoice);
+
+        if (selectedEvent.eventMembers.isEmpty()) {
+            System.out.println("No members registered for this event.");
+            return;
+        }
+
+        System.out.println("\nMembers in event " + selectedEvent.eventName + ":");
+        for (int i = 0; i < selectedEvent.eventMembers.size(); i++) {
+            System.out.println((i + 1) + ": " + selectedEvent.eventMembers.get(i));
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Event: " + eventName +
+                " | Discipline: " + discipline +
+                " | Location: " + location +
+                " | Date: " + date;
+    }
+
+}
