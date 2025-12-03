@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class SwimEvent {
 
-    String memberName;
-    String diciplineType;
-    String name;
-    int rank;
-    double time;
-    LocalDate date;
+   static String memberName;
+    static String diciplineType;
+    static String name;
+    static int rank;
+   static double time;
+    static LocalDate date;
     static ArrayList<SwimEvent> eventList = new ArrayList<>();
 
     public SwimEvent(String memberName, String name, String diciplineType, int rank, double time, LocalDate date) {
@@ -18,10 +18,10 @@ public class SwimEvent {
         this.rank = rank;
         this.time = time;
         this.date = date;
-        this.memberName=memberName;
+        this.memberName = memberName;
     }
 
-    public void registerEventMember() {
+    public static void registerEventMember() {
         Scanner input = new Scanner(System.in);
         boolean correctDicipline = false;
         boolean oneMoreDicipline = false;
@@ -30,8 +30,8 @@ public class SwimEvent {
         rank = 0;
         time = 0.0;
         date = null;
-        memberName="";
-        String anotherEvent="";
+        memberName = "";
+        String anotherEvent = "";
 
         System.out.println("Choose your group...");
         // læg printCompetition metoden ind her
@@ -75,14 +75,12 @@ public class SwimEvent {
             eventList.add(event);
 
             System.out.println("Would you like to add another event?");
-            anotherEvent=input.nextLine();
+            anotherEvent = input.nextLine();
             if (anotherEvent.equalsIgnoreCase("Yes")) {
-                oneMoreDicipline=false;
-            }
-            else if (anotherEvent.equalsIgnoreCase("No")) {
-                oneMoreDicipline=true;
-            }
-            else {
+                oneMoreDicipline = false;
+            } else if (anotherEvent.equalsIgnoreCase("No")) {
+                oneMoreDicipline = true;
+            } else {
                 System.out.println("Please write 'Yes' or 'No' only...");
             }
         }
@@ -90,11 +88,12 @@ public class SwimEvent {
     }
 
     public String toString() {
-        return memberName+":"
-                +name+" - "+diciplineType+" - "+rank+" - "+time+" - "+date;
+        return memberName + ":"
+                + name + " - " + diciplineType + " - " + rank + " - " + time + " - " + date;
     }
 
-    public static void printDisciplineMenu() {
+
+  /*  public static void printDisciplineMenu() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("\nChoose a swim discipline");
