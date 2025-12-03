@@ -112,9 +112,9 @@ public class SwimEvent {
             input.nextLine();
             if (back == 0) return;
                 System.out.println("Press 0 to get back to the menu");
+            System.out.println("re-update");
             }
         }
-
     }
 
 
