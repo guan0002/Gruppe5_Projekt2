@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Members {
@@ -8,104 +7,131 @@ public class Members {
     int age;
     String memberType;
     String paid;
+    String swimType;
     public static ArrayList<Members> membersRegister = new ArrayList<>();
     public ArrayList<SwimEvent> events = new ArrayList<>();
 
-    public Members(String name, int age, String memberType, String paid) {
+    public Members(String name, int age, String memberType, String paid, String swimType) {
         this.name = name;
         this.age = age;
         this.memberType = memberType;
         this.paid=paid;
+        this.swimType=swimType;
 
     }
-
     public void registerMember() throws IOException {
-        Scanner input = new Scanner(System.in);
+        Scanner input = InputValidation.scanner;
 
-        boolean correctIntFormat = false;
-        boolean correctActivity = false;
-        boolean correctMemberType = false;
-        boolean correctPaid = false;
-        boolean backToMenu = false;
+        String name = InputValidation.ReadString("Write member name");
+        int age = InputValidation.ReadInt("Write age");
 
-        String name;
-        int age = 0;
-        String memberType="";
-        String paid = "";
-        String activity = "";
-
-        System.out.println("Write member name");
-        name = input.nextLine();
-
-        while (!correctIntFormat) {
-            System.out.println("Write age");
-            try {
-                age = input.nextInt();
-                correctIntFormat = true;
-                input.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("We only accept numbers, not letters. Try again!");
-                input.nextLine();
-            }
-        }
-
-        while(!correctActivity) {
-            System.out.println("Are the membership, active or passive?");
-            activity=input.nextLine();
-            if(activity.equalsIgnoreCase("Active") || activity.equalsIgnoreCase("Passive")) {
-                correctActivity=true;
-            }
-            else {
-                System.out.println("you have to write either 'Active' or 'Passive'!!!");
-            }
-        }
-
-        if (activity.equalsIgnoreCase("Active")) {
-
-        }
-        else {
-            memberType="Passive";
-        }
-
-        while (!correctPaid) {
-            System.out.println("Write yes if the member has paid or no for not paid");
-            paid = input.nextLine();
-            if (paid.equalsIgnoreCase("Yes") || paid.equalsIgnoreCase("No")) {
-                correctPaid = true;
+        String activity;
+        while (true) {
+            activity = InputValidation.ReadString("Is the membership active or passive?");
+            if (activity.equalsIgnoreCase("Active") || activity.equalsIgnoreCase("Passive")) {
+                break;
             } else {
-                System.out.println("You have to write yes or no");
+                System.out.println("Please write either 'Active' or 'Passive'.");
             }
         }
 
-        Members m = new Members(name, age, memberType, paid);
+        String memberType;
+        if (activity.equalsIgnoreCase("Active")) {
+            if (age < 18) {
+                memberType = "Junior Member";
+            } else if (age > 18 && age < 60) {
+                memberType = "Senior Member";
+            } else {
+                memberType = "Elder Member";
+            }
+        } else {
+            memberType = "Passive";
+        }
+
+
+        String paid;
+        while (true) {
+            paid = InputValidation.ReadString("Has the member paid? Type 'yes' or 'no'.");
+            if (paid.equalsIgnoreCase("Yes") || paid.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("You must write either yes or no.");
+            }
+        }
+
+        Members m  = new Members(name, age, memberType, paid, swimType);
         membersRegister.add(m);
         DatabaseMember.saveMembersToFile(Members.membersRegister);
 
-        System.out.println("Member registered!");
+        while (true) {
+            String team = InputValidation.ReadString("Does the member want to join a team? Type 'yes' or 'no'.");
+            if (team.equalsIgnoreCase("Yes")) {
 
-        System.out.println("Press 0 to go back to the menu.");
+                break;
+            } else if (team.equalsIgnoreCase("No")) {
+                System.out.println("The member is now registered.");
+
+                while (true) {
+                    int back = InputValidation.ReadInt("Press 0 to get back to the menu:");
+                    if (back == 0) {
+                        return;
+                    } else {
+                        System.out.println("Invalid number. Press 0 to go back.");
+                    }
+                }
+            } else {
+                System.out.println("Invalid input — please write yes or no.");
+            }
+        }
+
+        String swimType = "";
+        while (true) {
+            swimType = InputValidation.ReadString("Is the member a recreational or competitive swimmer?");
+            if (swimType.equalsIgnoreCase("Competitive") || swimType.equalsIgnoreCase("Recreational")) {
+                break;
+            } else {
+                System.out.println("Invalid input! Please write 'recreational' or 'competitive'.");
+            }
+        }
+
+        if (swimType.equalsIgnoreCase("Competitive")) {
+            CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competitive");
+            boolean added = cm.tryAddToCompetition();
+
+            if (added) {
+                System.out.println("The member is now registered as a competitive swimmer!");
+
+                DatabaseCompetitionMember.saveCompetitionDatabase();
+
+            } else {
+                System.out.println("Only active members within the allowed age range can be added to the list.");
+            }
+        } else {
+            System.out.println("The member is now registered as a recreational swimmer.");
+        }
 
         while (true) {
-            int choice = input.nextInt();
-            if (choice == 0) break;
-            System.out.println("Press 0 to go back to the menu.");
-        }
-        System.out.println("Press 0 to get back to the menu");
-        while(!backToMenu){
-            int back = input.nextInt();
+            int back = InputValidation.ReadInt("Press 0 to get back to the menu:");
             if (back == 0) {
-                backToMenu = true;
+                break;
             } else {
-                System.out.println("Press 0 to get back to the menu");
+                System.out.println("Press 0 to get back to the menu.");
             }
         }
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + ", Age: " + age +
-                ", Type: " + memberType + ", Paid: " + paid;
+        return name + "," + age + "," + memberType + "," + paid + "," + swimType;
     }
 
+    public String memberDisplay() {
+        return "Name: " + name +
+                " Age: " + age +
+                " Type: " + memberType +
+                " Paid: " + paid +
+                " SwimType " + swimType;
+
+    }
 }
 
