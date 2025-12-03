@@ -15,6 +15,7 @@ public class MainMenu {
                     "Register a new member",
                     "View member list",
                     "View competition list",
+                    "Choose discipline",
                     "Close the program",
             };
 
@@ -60,13 +61,14 @@ public class MainMenu {
 
 
                 case 4:
+                    SwimEvent.printDisciplineMenu();
+                    break;
+
+                case 5:
                     System.out.println("Closing the program");
                     run = false;
                     break;
 
-                case 5:
-                    //Metode her
-                    break;
 
                 default:
                     System.out.println("Invalid choice!");
