@@ -61,7 +61,7 @@ public class MainMenu {
 
 
                 case 4:
-                    SwimEvent.printDisciplineMenu();
+                    SwimEvent.registerEventMember();
                     break;
 
                 case 5:
