@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class SwimEvent {
 
-   static String memberName;
+    static String memberName;
     static String diciplineType;
     static String name;
     static int rank;
-   static double time;
+    static double time;
     static LocalDate date;
     static ArrayList<SwimEvent> eventList = new ArrayList<>();
 
@@ -91,6 +91,7 @@ public class SwimEvent {
         return memberName + ":"
                 + name + " - " + diciplineType + " - " + rank + " - " + time + " - " + date;
     }
+}
 
 
   /*  public static void printDisciplineMenu() {
@@ -140,8 +141,4 @@ public class SwimEvent {
             System.out.println("re-update");
         }
     }
-}
-
-
-
-
+} */
