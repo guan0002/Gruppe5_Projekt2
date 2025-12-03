@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class SwimEvent {
 
+    String memberName;
     String diciplineType;
     String name;
     int rank;
@@ -11,12 +12,13 @@ public class SwimEvent {
     LocalDate date;
     static ArrayList<SwimEvent> eventList = new ArrayList<>();
 
-    public SwimEvent(String name, String diciplineType, int rank, double time, LocalDate date) {
+    public SwimEvent(String memberName, String name, String diciplineType, int rank, double time, LocalDate date) {
         this.diciplineType = diciplineType;
         this.name = name;
         this.rank = rank;
         this.time = time;
         this.date = date;
+        this.memberName=memberName;
     }
 
     public void registerEventMember() {
@@ -28,12 +30,12 @@ public class SwimEvent {
         rank = 0;
         time = 0.0;
         date = null;
-        String member;
+        memberName="";
         String anotherEvent="";
 
-        System.out.println("Which Competition Member would you like to add an event to?");
-        member = input.nextLine();
-        // boolean added = CompetitionMember.addedIf(cm -> cm.name.equalsIgnoreCase(name));
+        System.out.println("Choose your group...");
+        // læg printCompetition metoden ind her
+        memberName = input.nextLine();
 
         while (!oneMoreDicipline) {
             while (!correctDicipline) {
@@ -69,7 +71,7 @@ public class SwimEvent {
                 }
             }
 
-            SwimEvent event = new SwimEvent(name, diciplineType, rank, time, date);
+            SwimEvent event = new SwimEvent(memberName, name, diciplineType, rank, time, date);
             eventList.add(event);
 
             System.out.println("Would you like to add another event?");
@@ -85,6 +87,11 @@ public class SwimEvent {
             }
         }
 
+    }
+
+    public String toString() {
+        return memberName+":"
+                +name+" - "+diciplineType+" - "+rank+" - "+time+" - "+date;
     }
 
     public static void printDisciplineMenu() {
