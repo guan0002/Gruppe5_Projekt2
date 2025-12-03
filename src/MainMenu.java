@@ -45,10 +45,8 @@ public class MainMenu {
                         for (Members m : Members.membersRegister) {
                             System.out.println(m.memberDisplay());
                         }
-                        Scanner input = new Scanner(System.in);
-                        System.out.println("Press 0 to go back to the menu.");
+                        InputValidation.ReadInt("Press 0 to go back to the menu.");
                         while (true) {
-                            choice = input.nextInt();
                             if (choice == 0) break;
                             System.out.println("Press 0 to go back to the menu.");
                         }
@@ -64,7 +62,7 @@ public class MainMenu {
                     break;
 
                 case 5:
-                    System.out.println("Closing the program");
+                    System.out.println("Closing the program...");
                     run = false;
                     break;
 
