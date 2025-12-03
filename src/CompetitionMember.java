@@ -9,7 +9,7 @@ public class CompetitionMember extends Members {
 
     public CompetitionMember(String name, int age, String memberType, String paid, String swimType) {
         super(name, age, memberType, paid, swimType);
-        this.swimType=swimType;
+        this.swimType = swimType;
     }
 
     public String getSwimType() {
@@ -43,29 +43,28 @@ public class CompetitionMember extends Members {
     }
 
     public static void printcompetition() {
-        Scanner input = new Scanner(System.in);
         boolean backToMenu = false;
 
-
-        if (Members.membersRegister.isEmpty()) {
-            System.out.println("No members have been registered yet.");
-
-        }
-        else {
-            System.out.println("Junior competition:");
-            for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
-
-            System.out.println("Senior competition");
-            for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
-        }
-
-        while (!backToMenu) {
-            int back = InputValidation.ReadInt("Press 0 to go back to the main menu");
-            if (back == 0) {
-                backToMenu = true;
+        while (backToMenu = true)
+            if (Members.membersRegister.isEmpty()) {
+                System.out.println("No members have been registered yet.");
+                break;
             } else {
-                System.out.println("Press 0 to get back to the menu");
+                int choice = InputValidation.ReadInt(
+                        "Press 1 to access the Junior Competition List" +
+                                "Press 2 to access the Senior Competition List");
+                if (choice == 1) {
+                    for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
+                    {
+                    }
+                } else if (choice == 2) {
+                    for (CompetitionMember cm : seniorCompetitionList) System.out.println(cm);
+
+                } else if (choice == 0) {
+                    break;
+
+
+                }
             }
-        }
     }
 }
