@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 public class SwimEvent {
 
-
     public static ArrayList<SwimEvent> eventList = new ArrayList<>();
     private ArrayList<EventMember> eventMembers = new ArrayList<>();
-
 
     private String eventName;
     private String discipline;
@@ -19,7 +17,6 @@ public class SwimEvent {
         this.discipline = discipline;
         this.location = location;
         this.date = date;
-
     }
 
     public static SwimEvent createEvent() {
@@ -53,7 +50,7 @@ public class SwimEvent {
         }
 
         return event;
-    }
+    } // createEvent()
 
     public void editEvent() {
         Scanner input = new Scanner(System.in);
@@ -86,7 +83,8 @@ public class SwimEvent {
         }
 
         System.out.println("Event updated!");
-    }
+
+    } // editEvent()
 
     public static void editEventMenu() {
         if (eventList.isEmpty()) {
@@ -107,22 +105,16 @@ public class SwimEvent {
         }
 
         eventList.get(choice).editEvent();
-    }
 
-    public static class EventMember {
-        Members member;
-        double time;
-        int rank;
-
-        public EventMember(Members member) {
-            this.member = member;
+        while (true) {
+            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+            if (back == 0) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please press 0.");
+            }
         }
-
-        @Override
-        public String toString() {
-            return member.name + " (" + member.age + " y) | Time: " + time + " | Rank: " + rank;
-        }
-    }
+    } // editEventMenu
 
     public static void addMemberToEvent() {
         if (eventList.isEmpty()) {
@@ -136,7 +128,6 @@ public class SwimEvent {
         }
 
         int eventChoice = InputValidation.ReadInt("Enter event number: ") - 1;
-
         if (eventChoice < 0 || eventChoice >= eventList.size()) {
             System.out.println("Invalid choice.");
             return;
@@ -175,36 +166,52 @@ public class SwimEvent {
             return;
         }
 
-        System.out.println("Members from file:");
-        for (int i = 0; i < fileMembers.size(); i++) {
-            System.out.println((i + 1) + ": " + fileMembers.get(i).memberDisplay());
+        boolean continueAdding = true;
+        while (continueAdding) {
+
+            System.out.println("Members from file:");
+            for (int i = 0; i < fileMembers.size(); i++) {
+                System.out.println((i + 1) + ": " + fileMembers.get(i).memberDisplay());
+            }
+
+            int memberChoice = InputValidation.ReadInt("Enter member number to add: ") - 1;
+            if (memberChoice < 0 || memberChoice >= fileMembers.size()) {
+                System.out.println("Invalid choice.");
+                return;
+            }
+
+            Members selectedMember = fileMembers.get(memberChoice);
+
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter swim time for " + selectedMember.name + ": ");
+            double time = input.nextDouble();
+            System.out.print("Enter swim rank for " + selectedMember.name + ": ");
+            int rank = input.nextInt();
+            input.nextLine();
+
+            EventMember eventMember = new EventMember(selectedMember);
+            eventMember.time = time;
+            eventMember.rank = rank;
+
+            selectedEvent.eventMembers.add(eventMember);
+            System.out.println(selectedMember.name + " has been added to event " + selectedEvent.eventName);
+
+            int addAnother = InputValidation.ReadInt("Do you want to add another member? (1: Yes, 2: No): ");
+            if (addAnother != 1) {
+                continueAdding = false;
+                System.out.println("Finished adding members.");
+            }
         }
 
-        int memberChoice = InputValidation.ReadInt("Enter member number to add: ") - 1;
-
-        if (memberChoice < 0 || memberChoice >= fileMembers.size()) {
-            System.out.println("Invalid choice.");
-            return;
+        while (true) {
+            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+            if (back == 0) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please press 0.");
+            }
         }
-
-        Members selectedMember = fileMembers.get(memberChoice);
-
-
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter swim time for " + selectedMember.name + ": ");
-        double time = input.nextDouble();
-        System.out.print("Enter swim rank for " + selectedMember.name + ": ");
-        int rank = input.nextInt();
-        input.nextLine(); // clear buffer
-
-        EventMember eventMember = new EventMember(selectedMember);
-        eventMember.time = time;
-        eventMember.rank = rank;
-
-        selectedEvent.eventMembers.add(eventMember);
-
-        System.out.println(selectedMember.name + " has been added to event " + selectedEvent.eventName);
-    }
+    } // addMemberToEvent()
 
     public static void showEvent() {
         if (eventList.isEmpty()) {
@@ -234,7 +241,16 @@ public class SwimEvent {
         for (int i = 0; i < selectedEvent.eventMembers.size(); i++) {
             System.out.println((i + 1) + ": " + selectedEvent.eventMembers.get(i));
         }
-    }
+
+        while (true) {
+            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+            if (back == 0) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please press 0.");
+            }
+        }
+    } //showEvent()
 
     @Override
     public String toString() {
@@ -244,4 +260,18 @@ public class SwimEvent {
                 " | Date: " + date;
     }
 
+    public static class EventMember {
+        Members member;
+        double time;
+        int rank;
+
+        public EventMember(Members member) {
+            this.member = member;
+        }
+
+        @Override
+        public String toString() {
+            return member.name + " (" + member.age + " y) | Time: " + time + " | Rank: " + rank;
+        }
+    } //EventMember
 }
