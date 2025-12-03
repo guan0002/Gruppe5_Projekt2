@@ -47,8 +47,8 @@ public class MainMenu {
                         }
                         InputValidation.ReadInt("Press 0 to go back to the menu.");
                         while (true) {
-                            if (choice == 0) break;
-                            System.out.println("Press 0 to go back to the menu.");
+                            if (choice == 0);
+                                break;
                         }
                     }
                     break;
