@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class SwimEvent {
 
     public static ArrayList<SwimEvent> eventList = new ArrayList<>();
-    private ArrayList<EventMember> eventMembers = new ArrayList<>();
+    public ArrayList<EventMember> eventMembers = new ArrayList<>();
 
     private String eventName;
     private String discipline;
@@ -127,7 +127,7 @@ public class SwimEvent {
         }
     } // editEventMenu
 
-    public static void addMemberToEvent() {
+    public static void addMemberToEvent() throws IOException {
         if (eventList.isEmpty()) {
             System.out.println("No events available! Please create an event first.");
             return;
@@ -212,6 +212,7 @@ public class SwimEvent {
                 continueAdding = false;
                 System.out.println("Finished adding members.");
             }
+            DatabaseSwimEvent.saveEventDatabase();
         }
 
         while (true) {
@@ -271,6 +272,7 @@ public class SwimEvent {
                 " | Location: " + location +
                 " | Date: " + date.format(DATE_FORMATTER);
     }
+
     public String toDatabaseString() {
         return eventName + "," +
                 discipline + "," +
@@ -286,6 +288,11 @@ public class SwimEvent {
         public EventMember(Members member) {
             this.member = member;
         }
+
+        public String toDatabaseString() {
+            return member.name + "," + time + "," + rank;
+        }
+
 
         @Override
         public String toString() {
