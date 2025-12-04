@@ -49,7 +49,7 @@ public class DatabaseMember {
     public static void loadCompetitionDatabase() throws IOException {
 
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/juniorCompetition.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/DatabaseCompetitorsJunior.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
 
@@ -66,10 +66,10 @@ public class DatabaseMember {
                 CompetitionMember.juniorCompetitionList.add(cm);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("juniorCompetition.txt not found yet.");
+            System.out.println("DatabaseCompetitorsJunior.txt not found yet.");
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader("src/seniorCompetition.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/DatabaseCompetitorsSenior.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
 
@@ -86,7 +86,7 @@ public class DatabaseMember {
                 CompetitionMember.seniorCompetitionList.add(cm);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("seniorCompetition.txt not found yet.");
+            System.out.println("DatabaseCompetitorsSenior.txt not found yet.");
         }
 
         System.out.println("Competition database loaded.");
@@ -97,6 +97,7 @@ public class DatabaseMember {
 
 
     //opdaterer kunde i customerDatabase.txt
+    /*
     static void saveMembers(Members m) throws IOException {
         FileWriter file = new FileWriter("src/customerDatabase.txt", true);
         PrintWriter updateList = new PrintWriter(file);
@@ -104,8 +105,8 @@ public class DatabaseMember {
         updateList.println(m.toString());
         updateList.close();
     }
-
-
+    */
+    /*
     public static Members findMemberByName(String name) throws IOException {
         ArrayList<Members> members = loadDatabase();
 
@@ -116,7 +117,8 @@ public class DatabaseMember {
         }
         return null;
     }
-
+    */
+    /*
     public static void deleteMember(String name) throws IOException {
         ArrayList<Members> members = loadDatabase();
         boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));
@@ -135,7 +137,7 @@ public class DatabaseMember {
         dc.close();
         System.out.println("Member deleted: " + name);
     }
-
+*/
 
 }
 

@@ -1,0 +1,2 @@
+SeniorPaid ActiveComp,25,Senior Member,yes,Competitive, Swim Type: Competitive
+SeniorNotPaid ActiveComp,25,Senior Member,no,Competitive, Swim Type: Competitive

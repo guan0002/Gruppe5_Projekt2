@@ -38,6 +38,7 @@ public class MainMenu {
                     break;
 
                 case 2:
+
                     if (Members.membersRegister.isEmpty()) {
                         System.out.println("No members have been registered yet.");
                     } else {

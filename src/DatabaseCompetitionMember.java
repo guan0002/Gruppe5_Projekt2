@@ -7,14 +7,14 @@ public class DatabaseCompetitionMember {
     public static void saveCompetitionDatabase() throws IOException {
 
         // --- Save Juniors ---
-        try (PrintWriter out = new PrintWriter(new FileWriter("src/juniorCompetition.txt"))) {
+        try (PrintWriter out = new PrintWriter(new FileWriter("src/DatabaseCompetitorsJunior.txt"))) {
             for (CompetitionMember cm : CompetitionMember.juniorCompetitionList) {
                 out.println(cm.toString());
             }
         }
 
         // --- Save Seniors ---
-        try (PrintWriter out = new PrintWriter(new FileWriter("src/seniorCompetition.txt"))) {
+        try (PrintWriter out = new PrintWriter(new FileWriter("src/DatabaseCompetitorsSenior.txt"))) {
             for (CompetitionMember cm : CompetitionMember.seniorCompetitionList) {
                 out.println(cm.toString());
             }

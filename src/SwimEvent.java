@@ -136,7 +136,7 @@ public class SwimEvent {
         SwimEvent selectedEvent = eventList.get(eventChoice);
 
         ArrayList<Members> fileMembers = new ArrayList<>();
-        String[] files = {"src/juniorCompetition.txt", "src/seniorCompetition.txt"};
+        String[] files = {"src/DatabaseCompetitorsJunior.txt", "src/DatabaseCompetitorsSenior.txt"};
 
         for (String fileName : files) {
             try {
