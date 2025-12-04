@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class SwimEvent {
 
@@ -258,9 +260,39 @@ public class SwimEvent {
         }
     } //showEvent()
 
+    public static void showTopRanks() {
+        if (eventList.isEmpty()) {
+            System.out.println("No events available!");
+            return;
+        }
+
+            for (SwimEvent event : eventList) {
+            Collections.sort(event.eventMembers, Comparator.comparingInt(m -> m.rank));
+
+            System.out.println("Event: " + event.eventName + " | Discipline: " + event.discipline);
+
+            System.out.println("Top 5 Ranks:");
+            int count = 0;
+            for (int i = 0; i < event.eventMembers.size() && count < 5; i++) {
+                EventMember member = event.eventMembers.get(i);
+                System.out.println((i + 1) + ": " + member);
+                count++;
+            }
+
+            System.out.println("====================================");
+        }
+
+        while (true) {
+            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+            if (back == 0) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please press 0.");
+            }
+        }
+    } // showTopRanks()
 
     public String toString() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         return "Event: " + eventName +
                 " | Discipline: " + discipline +

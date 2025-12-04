@@ -14,7 +14,8 @@ public class SwimEventMenu {
                     "Register a new event",
                     "Edit an existing event",
                     "Add Member to an event",
-                    "View Events",
+                    "View event",
+                    "Show top 5 for all events",
                     "Return to main menu",
             };
 
@@ -48,6 +49,10 @@ public class SwimEventMenu {
                     break;
 
                 case 5:
+                    SwimEvent.showTopRanks();
+                    break;
+
+                case 6:
                     MainMenu.PrintMenus();
                     break;
 
