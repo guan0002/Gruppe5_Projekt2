@@ -1,1 +1,1 @@
-Event: test | Discipline: crawl | Location: opidig | Date: 01/01/2025
+test,crawl,herning,01/01/1992

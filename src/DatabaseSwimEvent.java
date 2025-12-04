@@ -7,7 +7,7 @@ public class DatabaseSwimEvent {
         // --- Save Event ---
         try (PrintWriter out = new PrintWriter(new FileWriter("src/DatabaseSwimEvents.txt"))) {
             for (SwimEvent se : SwimEvent.eventList) {
-                out.println(se.toString());
+                out.println(se.toDatabaseString());
             }
         }
         System.out.println("Even database updated.");
@@ -26,7 +26,7 @@ public class DatabaseSwimEvent {
                 String eventName = entry[0];
                 String disciplin = entry[1];
                 String location = entry[2];
-                LocalDate date = LocalDate.parse(entry[3]);
+                LocalDate date = LocalDate.parse(entry[3], SwimEvent.DATE_FORMATTER);
 
                 SwimEvent se = new SwimEvent(eventName, disciplin, location, date);
                 SwimEvent.eventList.add(se);

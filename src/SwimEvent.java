@@ -265,12 +265,17 @@ public class SwimEvent {
 
 
     public String toString() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         return "Event: " + eventName +
                 " | Discipline: " + discipline +
                 " | Location: " + location +
                 " | Date: " + date.format(DATE_FORMATTER);
+    }
+    public String toDatabaseString() {
+        return eventName + "," +
+                discipline + "," +
+                location + "," +
+                date.format(DATE_FORMATTER);
     }
 
     public static class EventMember {
