@@ -59,10 +59,6 @@ public class Members {
             }
         }
 
-        Members m  = new Members(name, age, memberType, paid, swimType);
-        membersRegister.add(m);
-        DatabaseMember.saveMembersToFile(Members.membersRegister);
-
         while (true) {
             String team = InputValidation.ReadString("Does the member want to join a team? Type 'yes' or 'no'.");
             if (team.equalsIgnoreCase("Yes")) {
@@ -93,6 +89,9 @@ public class Members {
                 System.out.println("Invalid input! Please write 'recreational' or 'competitive'.");
             }
         }
+        Members m  = new Members(name, age, memberType, paid, swimType);
+        membersRegister.add(m);
+        DatabaseMember.saveMembersToFile(Members.membersRegister);
 
         if (swimType.equalsIgnoreCase("Competitive")) {
             CompetitionMember cm = new CompetitionMember(name, age, memberType, paid, "Competitive");
@@ -113,9 +112,7 @@ public class Members {
         while (true) {
             int back = InputValidation.ReadInt("Press 0 to get back to the menu:");
             if (back == 0) {
-                break;
-            } else {
-                System.out.println("Press 0 to get back to the menu.");
+                return;
             }
         }
     }
@@ -126,11 +123,11 @@ public class Members {
     }
 
     public String memberDisplay() {
-        return "Name: " + name +
-                " Age: " + age +
-                " Type: " + memberType +
-                " Paid: " + paid +
-                " SwimType " + swimType;
+        return "--------------------------\n" + "Name: " + name + "\n" +
+                "Age: " + age + "\n" +
+                "Type: " + memberType + "\n" +
+                "Paid: " + paid + "\n" +
+                "SwimType: " + swimType;
 
     }
 }
