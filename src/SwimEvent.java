@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class SwimEvent {
 
     }
 
-    public static SwimEvent createEvent() {
+    public static SwimEvent createEvent() throws IOException {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter event name: ");
@@ -41,6 +42,8 @@ public class SwimEvent {
 
         SwimEvent event = new  SwimEvent(eventName, discipline, location, date);
         eventList.add(event);
+
+        DatabaseSwimEvent.saveEventDatabase();
 
         System.out.println("Event saved!");
 
@@ -87,6 +90,8 @@ public class SwimEvent {
             this.date = LocalDate.parse(dateInput, DATE_FORMATTER);
 
         }
+
+
 
         System.out.println("Event updated!");
 
