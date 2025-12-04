@@ -62,7 +62,6 @@ public class Members {
         while (true) {
             String team = InputValidation.ReadString("Does the member want to join a team? Type 'yes' or 'no'.");
             if (team.equalsIgnoreCase("Yes")) {
-
                 break;
             } else if (team.equalsIgnoreCase("No")) {
                 System.out.println("The member is now registered.");
@@ -75,20 +74,32 @@ public class Members {
                         System.out.println("Invalid number. Press 0 to go back.");
                     }
                 }
+            }
+        }
+        //Opretter en scanner der kun bliver brugt her fordi InputValidation automatisk filtrerer tal
+        Scanner OneTimeUse = new Scanner(System.in);
+        int choice;
+        while (true) {
+            System.out.println("Is the member a recreational or competitive swimmer? '1' for Recreational or '2' for Competitive");
+            if (OneTimeUse.hasNextInt()) {
+                choice = OneTimeUse.nextInt();
+                OneTimeUse.nextLine();
             } else {
-                System.out.println("Invalid input — please write yes or no.");
+                System.out.println("Please enter a number '1' or '2'");
+                OneTimeUse.nextLine();
+                continue;
+            }
+            if (choice == 1) {
+                swimType = "Recreational";
+                break;
+            } else if (choice == 2) {
+                swimType = "Competitive";
+                break;
+            } else {
+                System.out.println("Invalid number! Type '1' or '2'");
             }
         }
 
-        String swimType = "";
-        while (true) {
-            swimType = InputValidation.ReadString("Is the member a recreational or competitive swimmer?");
-            if (swimType.equalsIgnoreCase("Competitive") || swimType.equalsIgnoreCase("Recreational")) {
-                break;
-            } else {
-                System.out.println("Invalid input! Please write 'recreational' or 'competitive'.");
-            }
-        }
         Members m  = new Members(name, age, memberType, paid, swimType);
         membersRegister.add(m);
         DatabaseMember.saveMembersToFile(Members.membersRegister);
@@ -123,11 +134,11 @@ public class Members {
     }
 
     public String memberDisplay() {
-        return "--------------------------\n" + "Name: " + name + "\n" +
-                "Age: " + age + "\n" +
-                "Type: " + memberType + "\n" +
-                "Paid: " + paid + "\n" +
-                "SwimType: " + swimType;
+        return "------------------------------------------------------------------------------------------\n" + "Name:" + name + " | " +
+                "Age:" + age + " | " +
+                "Type:" + memberType + " | " +
+                "Paid:" + paid + " | " +
+                "SwimType:" + swimType;
 
     }
 }
