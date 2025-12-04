@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,11 +13,14 @@ public class SwimEvent {
     private String location;
     private LocalDate date;
 
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public SwimEvent(String eventName, String discipline, String location, LocalDate date) {
         this.eventName = eventName;
         this.discipline = discipline;
         this.location = location;
         this.date = date;
+
     }
 
     public static SwimEvent createEvent() {
@@ -31,11 +35,11 @@ public class SwimEvent {
         System.out.print("Enter event location: ");
         String location = input.nextLine();
 
-        System.out.print("Enter date (YYYY-MM-DD): ");
-        LocalDate date = LocalDate.parse(input.nextLine());
+        System.out.print("Enter date (DD/MM/YYYY): ");
+        String dateInput = input.nextLine();
+        LocalDate date = LocalDate.parse(dateInput, DATE_FORMATTER);
 
-        SwimEvent event = new SwimEvent(eventName, discipline, location, date);
-
+        SwimEvent event = new  SwimEvent(eventName, discipline, location, date);
         eventList.add(event);
 
         System.out.println("Event saved!");
@@ -76,10 +80,12 @@ public class SwimEvent {
             this.location = newLocation;
         }
 
-        System.out.print("Enter new date YYYY-MM-DD (or press ENTER to keep \"" + date + "\"): ");
-        String newDate = input.nextLine();
-        if (!newDate.isEmpty()) {
-            this.date = LocalDate.parse(newDate);
+        System.out.println("Enter a new date DD/MM/YYYY) or ENTER to keep \""
+                + date.format(DATE_FORMATTER) + "\"): " );
+        String dateInput = input.nextLine();
+        if (!dateInput.isEmpty()) {
+            this.date = LocalDate.parse(dateInput, DATE_FORMATTER);
+
         }
 
         System.out.println("Event updated!");
@@ -252,12 +258,14 @@ public class SwimEvent {
         }
     } //showEvent()
 
-    @Override
+
     public String toString() {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         return "Event: " + eventName +
                 " | Discipline: " + discipline +
                 " | Location: " + location +
-                " | Date: " + date;
+                " | Date: " + date.format(DATE_FORMATTER);
     }
 
     public static class EventMember {
