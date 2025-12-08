@@ -60,6 +60,9 @@ public class Members {
             if (team.equalsIgnoreCase("Yes")) {
                 break;
             } else if (team.equalsIgnoreCase("No")) {
+                Members m  = new Members(name, age, memberType, paid, swimType);
+                membersRegister.add(m);
+                DatabaseMember.saveMembersToFile(Members.membersRegister);
                 System.out.println("The member is now registered.");
 
                 while (true) {

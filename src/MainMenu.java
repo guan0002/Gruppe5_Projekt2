@@ -45,6 +45,7 @@ public class MainMenu {
                         for (Members m : Members.membersRegister) {
                             System.out.println(m.memberDisplay());
                         }
+
                         InputValidation.ReadInt("Press 0 to go back to the menu.");
                         while (true) {
                             if (choice == 0);
