@@ -9,7 +9,6 @@ public class Members {
     String paid;
     String swimType;
     public static ArrayList<Members> membersRegister = new ArrayList<>();
-    public ArrayList<SwimEvent> events = new ArrayList<>();
 
     public Members(String name, int age, String memberType, String paid, String swimType) {
         this.name = name;
@@ -47,7 +46,6 @@ public class Members {
         } else {
             memberType = "Passive";
         }
-
 
         String paid;
         while (true) {

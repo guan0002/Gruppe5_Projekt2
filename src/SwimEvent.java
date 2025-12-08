@@ -93,8 +93,6 @@ public class SwimEvent {
 
         }
 
-
-
         System.out.println("Event updated!");
 
     } // editEvent()
@@ -285,7 +283,7 @@ public class SwimEvent {
                 count++;
             }
 
-            System.out.println("====================================");
+            System.out.println("===========================================================");
         }
 
         while (true) {
