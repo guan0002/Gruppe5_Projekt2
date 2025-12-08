@@ -1,2 +1,3 @@
 JuniorPaid ActiveComp,15,Junior Member,yes,Competitive, Swim Type: Competitive
 JuniorNotPaid ActiveComp,15,Junior Member,no,Competitive, Swim Type: Competitive
+Adam Pruttemand Levy,12,Junior Member,yes,Competitive, Swim Type: Competitive

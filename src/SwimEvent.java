@@ -203,11 +203,8 @@ public class SwimEvent {
             Members selectedMember = fileMembers.get(memberChoice);
 
             Scanner input = new Scanner(System.in);
-            System.out.print("Enter swim time for " + selectedMember.name + ": ");
-            double time = input.nextDouble();
-            System.out.print("Enter swim rank for " + selectedMember.name + ": ");
-            int rank = input.nextInt();
-            input.nextLine();
+            double time = InputValidation.ReadInt("Enter swim time for " + selectedMember.name + "(Please write the time in seconds): ");
+            int rank = InputValidation.ReadInt("Enter swim rank for " + selectedMember.name + ": ");
 
             EventMember eventMember = new EventMember(selectedMember);
             eventMember.time = time;
