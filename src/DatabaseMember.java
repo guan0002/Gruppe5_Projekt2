@@ -91,53 +91,5 @@ public class DatabaseMember {
 
         System.out.println("Competition database loaded.");
     }
-
-
-    // ------------------------------------------------------------------------------
-
-
-    //opdaterer kunde i customerDatabase.txt
-    /*
-    static void saveMembers(Members m) throws IOException {
-        FileWriter file = new FileWriter("src/customerDatabase.txt", true);
-        PrintWriter updateList = new PrintWriter(file);
-
-        updateList.println(m.toString());
-        updateList.close();
-    }
-    */
-    /*
-    public static Members findMemberByName(String name) throws IOException {
-        ArrayList<Members> members = loadDatabase();
-
-        for (Members m : members) {
-            if (m.name.equalsIgnoreCase(name)) {
-                return m;
-            }
-        }
-        return null;
-    }
-    */
-    /*
-    public static void deleteMember(String name) throws IOException {
-        ArrayList<Members> members = loadDatabase();
-        boolean removed = members.removeIf(m -> m.name.equalsIgnoreCase(name));
-
-        if (!removed) {
-            System.out.println("Member not found.");
-            return;
-        }
-
-        FileWriter writer = new FileWriter("src/DatabaseMember.txt", false);
-        PrintWriter dc = new PrintWriter(writer);
-
-        for (Members m : members) {
-            dc.println(m.toString());
-        }
-        dc.close();
-        System.out.println("Member deleted: " + name);
-    }
-*/
-
 }
 
