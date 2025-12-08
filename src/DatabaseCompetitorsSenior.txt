@@ -1,2 +1,7 @@
-SeniorPaid ActiveComp,25,Senior Member,yes,Competitive, Swim Type: Competitive
-SeniorNotPaid ActiveComp,25,Senior Member,no,Competitive, Swim Type: Competitive
+Bubber Nielsen,25,Senior Member,yes,Competitive, Swim Type: Competitive
+Uffe Holm,25,Senior Member,no,Competitive, Swim Type: Competitive
+Dirch Passer,25,Senior Member,yes,Competitive, Swim Type: Competitive
+Anders Matthesen,25,Senior Member,no,Competitive, Swim Type: Competitive
+Kim Larsen,25,Senior Member,yes,Competitive, Swim Type: Competitive
+MC Einar,24,Senior Member,no,Competitive, Swim Type: Competitive
+Thomas Eje,23,Senior Member,yes,Competitive, Swim Type: Competitive

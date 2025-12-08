@@ -1,3 +1,7 @@
-JuniorPaid ActiveComp,15,Junior Member,yes,Competitive, Swim Type: Competitive
-JuniorNotPaid ActiveComp,15,Junior Member,no,Competitive, Swim Type: Competitive
-Adam Pruttemand Levy,12,Junior Member,yes,Competitive, Swim Type: Competitive
+Terkel Knudsen,15,Junior Member,yes,Competitive, Swim Type: Competitive
+Stewart Stardust,15,Junior Member,no,Competitive, Swim Type: Competitive
+Iqbal Farooq,15,Junior Member,yes,Competitive, Swim Type: Competitive
+Onkel Reje,15,Junior Member,no,Competitive, Swim Type: Competitive
+Pilou Asbæk,14,Junior Member,yes,Competitive, Swim Type: Competitive
+Bodil fra Badehotellet,15,Junior Member,no,Competitive, Swim Type: Competitive
+Jeppe K fra Næstved,15,Junior Member,yes,Competitive, Swim Type: Competitive

@@ -1,13 +1,24 @@
-JuniorPaid ActiveComp,15,Junior Member,yes,competitive
-JuniorPaid ActiveRec,14,Junior Member,yes,recreational
-JuniorPaid Passive,13,Junior Member,yes,none
-JuniorNotPaid ActiveComp,15,Junior Member,no,competitive
-JuniorNotPaid ActiveRec,14,Junior Member,no,recreational
-JuniorNotPaid Passive,13,Junior Member,no,none
-SeniorPaid ActiveComp,25,Senior Member,yes,competitive
-SeniorPaid ActiveRec,24,Senior Member,yes,recreational
-SeniorPaid Passive,23,Senior Member,yes,none
-SeniorNotPaid ActiveComp,25,Senior Member,no,competitive
-SeniorNotPaid ActiveRec,24,Senior Member,no,recreational
-SeniorNotPaid Passive,23,Senior Member,no,none
-Adam Pruttemand Levy,12,Junior Member,yes,Competitive
+Terkel Knudsen,15,Junior Member,yes,competitive
+Sally fra Valby,14,Junior Member,yes,recreational
+Arne Nougatgren,13,Junior Member,yes,none
+Stewart Stardust,15,Junior Member,no,competitive
+Per Værsgo,14,Junior Member,no,recreational
+Finn Nørbygaard,13,Junior Member,no,none
+Iqbal Farooq,15,Junior Member,yes,competitive
+Onkel Reje,15,Junior Member,no,competitive
+Pilou Asbæk,14,Junior Member,yes,competitive
+Bodil fra Badehotellet,15,Junior Member,no,competitive
+Jeppe K fra Næstved,15,Junior Member,yes,competitive
+
+
+Bubber Nielsen,25,Senior Member,yes,competitive
+Lisbet Dahl,24,Senior Member,yes,recreational
+Benny Frandsen,23,Senior Member,yes,none
+Uffe Holm,25,Senior Member,no,competitive
+Viggo Sommer,24,Senior Member,no,recreational
+Ghita Nørby,23,Senior Member,no,none
+Dirch Passer,25,Senior Member,yes,competitive
+Anders Matthesen,25,Senior Member,no,competitive
+Kim Larsen,25,Senior Member,yes,competitive
+MC Einar,24,Senior Member,no,competitive
+Thomas Eje,23,Senior Member,yes,competitive
