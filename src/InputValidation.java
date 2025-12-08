@@ -28,7 +28,7 @@ while (true) {
         System.out.println(prompt);
         String input = scanner.nextLine().trim();
 
-        if (input.matches("[a-zA-ZæøåÆØÅ ]+")) {
+        if (input.matches("[a-zxA-ZæøåÆØÅ ]+")) {
             return input;
         } else {
             System.out.println("Please type a valid input!");

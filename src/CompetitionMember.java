@@ -51,8 +51,7 @@ public class CompetitionMember extends Members {
                 break;
             } else {
                 int choice = InputValidation.ReadInt(
-                        "Press 1 to access the Junior Competition List" +
-                                "Press 2 to access the Senior Competition List");
+                        "1: Display Junior Competitors\n" + "2: Display Senior Competitors\n" + "0: Return to the main menu");
                 if (choice == 1) {
                     for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
                     {
