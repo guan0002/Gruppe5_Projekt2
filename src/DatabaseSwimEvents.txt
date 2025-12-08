@@ -1,0 +1,37 @@
+Copenhagen Sprint,Freestyle 50m,Copenhagen Swim Center,12/01/2025
+JuniorPaid ActiveComp,120.0,1
+JuniorNotPaid ActiveComp,122.5,2
+
+Junior Nationals,Backstroke 100m,Aarhus Aquatics,25/01/2025
+JuniorPaid ActiveComp,130.0,1
+JuniorNotPaid ActiveComp,133.2,2
+
+Senior Cup,Breaststroke 200m,Odense Swimming Hall,03/02/2025
+SeniorPaid ActiveComp,145.6,1
+SeniorNotPaid ActiveComp,150.9,2
+
+Open Water Challenge,Open Water 1500m,Silkeborg Lake,17/02/2025
+SeniorPaid ActiveComp,1025.3,1
+
+Team Championship,Medley Relay,Esbjerg Swim Stadium,01/03/2025
+JuniorPaid ActiveComp,305.7,1
+SeniorPaid ActiveComp,310.2,2
+
+Regional Trials,Butterfly 100m,Roskilde Baths,08/03/2025
+JuniorNotPaid ActiveComp,135.5,1
+
+Night Swim Invitational,Freestyle 200m,Aalborg Aquatics,15/03/2025
+SeniorNotPaid ActiveComp,230.0,1
+JuniorPaid ActiveComp,233.1,2
+
+Youth Summer Cup,Backstroke 50m,Viborg Swim Arena,22/03/2025
+JuniorPaid ActiveComp,119.9,1
+JuniorNotPaid ActiveComp,120.8,2
+
+Spring Classic,Individual Medley 400m,Kolding Swim Hall,29/03/2025
+SeniorPaid ActiveComp,410.4,1
+SeniorNotPaid ActiveComp,415.6,2
+
+Dolphin Finals,Freestyle 100m,Copenhagen Swim Center,05/04/2025
+JuniorPaid ActiveComp,125.0,1
+SeniorPaid ActiveComp,128.7,2
