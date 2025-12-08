@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
@@ -29,18 +30,26 @@ public class SwimEvent {
     public static SwimEvent createEvent() throws IOException {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter event name: ");
-        String eventName = input.nextLine();
+        String eventName = InputValidation.ReadString("Enter event name: ");
 
-        System.out.print("Enter discipline: ");
-        String discipline = input.nextLine();
+        String discipline = InputValidation.ReadString("Enter discipline");
 
-        System.out.print("Enter event location: ");
-        String location = input.nextLine();
+        String location = InputValidation.ReadString("Enter event location: ");
 
-        System.out.print("Enter date (DD/MM/YYYY): ");
-        String dateInput = input.nextLine();
-        LocalDate date = LocalDate.parse(dateInput, DATE_FORMATTER);
+        LocalDate date = null;
+
+        while (true) {
+            System.out.print("Enter date (DD/MM/YYYY): ");
+            String dateInput = input.nextLine();
+            try {
+                date = LocalDate.parse(dateInput, DATE_FORMATTER);
+                System.out.println("Valid date" + date.format(DATE_FORMATTER));
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use DD/MM/YYYY");
+            }
+        }
+
 
         SwimEvent event = new  SwimEvent(eventName, discipline, location, date);
         eventList.add(event);
