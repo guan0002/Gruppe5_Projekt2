@@ -76,19 +76,19 @@ public class SwimEvent {
         System.out.println("\nEditing event:");
         System.out.println(this);
 
-        System.out.print("Enter new event name (or press ENTER to keep \"" + eventName + "\"): ");
+        System.out.println("Enter new event name (or press ENTER to keep \"" + eventName + "\"): ");
         String newName = input.nextLine();
+
         if (!newName.isEmpty()) {
             this.eventName = newName;
         }
 
-        System.out.print("Enter new discipline (or press ENTER to keep \"" + discipline + "\"): ");
+        System.out.println("Enter new discipline (or press ENTER to keep \"" + discipline + "\"): ");
         String newDiscipline = input.nextLine();
         if (!newDiscipline.isEmpty()) {
             this.discipline = newDiscipline;
         }
-
-        System.out.print("Enter new location (or press ENTER to keep \"" + location + "\"): ");
+        System.out.println("Enter new location (or press ENTER to keep \"" + location + "\"): ");
         String newLocation = input.nextLine();
         if (!newLocation.isEmpty()) {
             this.location = newLocation;
@@ -333,7 +333,7 @@ public class SwimEvent {
 
         @Override
         public String toString() {
-            return member.name + " (" + member.age + " y) | Time: " + time + " | Rank: " + rank;
+            return member.name + " | Time: " + time + " | Rank: " + rank;
         }
     } //EventMember
 }

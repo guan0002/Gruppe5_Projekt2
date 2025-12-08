@@ -19,8 +19,6 @@ public class Members {
 
     }
     public void registerMember() throws IOException {
-        Scanner input = InputValidation.scanner;
-
         String name = InputValidation.ReadString("Write member name");
         int age = InputValidation.ReadInt("Write age");
 
