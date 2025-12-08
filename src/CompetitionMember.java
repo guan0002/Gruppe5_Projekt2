@@ -12,10 +12,6 @@ public class CompetitionMember extends Members {
         this.swimType = swimType;
     }
 
-    public String getSwimType() {
-        return swimType;
-    }
-
     @Override
     public String toString() {
         return super.toString() + ", Swim Type: " + swimType;
