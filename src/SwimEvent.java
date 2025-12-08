@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Comparator;
 public class SwimEvent {
 
     public static ArrayList<SwimEvent> eventList = new ArrayList<>();
-    private ArrayList<EventMember> eventMembers = new ArrayList<>();
+    public ArrayList<EventMember> eventMembers = new ArrayList<>();
 
     private String eventName;
     private String discipline;
@@ -25,7 +26,7 @@ public class SwimEvent {
 
     }
 
-    public static SwimEvent createEvent() {
+    public static SwimEvent createEvent() throws IOException {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Enter event name: ");
@@ -43,6 +44,8 @@ public class SwimEvent {
 
         SwimEvent event = new  SwimEvent(eventName, discipline, location, date);
         eventList.add(event);
+
+        DatabaseSwimEvent.saveEventDatabase();
 
         System.out.println("Event saved!");
 
@@ -90,6 +93,8 @@ public class SwimEvent {
 
         }
 
+
+
         System.out.println("Event updated!");
 
     } // editEvent()
@@ -124,7 +129,7 @@ public class SwimEvent {
         }
     } // editEventMenu
 
-    public static void addMemberToEvent() {
+    public static void addMemberToEvent() throws IOException {
         if (eventList.isEmpty()) {
             System.out.println("No events available! Please create an event first.");
             return;
@@ -209,6 +214,7 @@ public class SwimEvent {
                 continueAdding = false;
                 System.out.println("Finished adding members.");
             }
+            DatabaseSwimEvent.saveEventDatabase();
         }
 
         while (true) {
@@ -300,6 +306,13 @@ public class SwimEvent {
                 " | Date: " + date.format(DATE_FORMATTER);
     }
 
+    public String toDatabaseString() {
+        return eventName + "," +
+                discipline + "," +
+                location + "," +
+                date.format(DATE_FORMATTER);
+    }
+
     public static class EventMember {
         Members member;
         double time;
@@ -308,6 +321,11 @@ public class SwimEvent {
         public EventMember(Members member) {
             this.member = member;
         }
+
+        public String toDatabaseString() {
+            return member.name + "," + time + "," + rank;
+        }
+
 
         @Override
         public String toString() {

@@ -9,7 +9,7 @@ public class SwimEventMenu {
         while (run) {
             System.out.println("Welcome to the event menu:\n");
 
-            String[] printMenus = {
+            String[] printEventMenus = {
                     "",
                     "Register a new event",
                     "Edit an existing event",
@@ -19,8 +19,8 @@ public class SwimEventMenu {
                     "Return to main menu",
             };
 
-            for (int i = 1; i < printMenus.length; i++) {
-                System.out.println(i + ": " + printMenus[i]);
+            for (int i = 1; i < printEventMenus.length; i++) {
+                System.out.println(i + ": " + printEventMenus[i]);
             }
 
             int choice = InputValidation.ReadInt("Enter a number:");

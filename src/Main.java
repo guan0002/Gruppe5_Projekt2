@@ -17,6 +17,12 @@ public class Main {
             System.out.println("Failed to load competition database.");
         }
 
+        try {
+            DatabaseSwimEvent.loadEventDatabase();
+        } catch (IOException e) {
+            System.out.println("Failed to load event database.");
+        }
+
         MainMenu.PrintMenus();
 
     }
