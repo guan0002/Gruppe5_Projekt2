@@ -64,10 +64,10 @@ public class DatabaseSwimEvent {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("DatabaseSwimEvents.txt not found yet.");
+            System.out.println("ERROR: Unable to locate DatabaseSwimEvents.txt.");
         }
 
-        System.out.println("Competition database loaded.");
+        System.out.println("Competitor database loaded.");
     }
 
 }
