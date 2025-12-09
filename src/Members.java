@@ -130,8 +130,15 @@ public class Members {
 
     @Override
     public String toString() {
-        return name + "," + age + "," + memberType + "," + paid + "," + swimType;
+        return "------------------------------------------------------------------------------------------\n" +
+                "Name:" + name + " | " +
+                "Age:" + age + " | " +
+                "Type:" + memberType + " | " +
+                "Paid:" + paid + " | " +
+                "SwimType:" + swimType;
+
     }
+
 
     public String memberDisplay() {
         return "------------------------------------------------------------------------------------------\n" +
