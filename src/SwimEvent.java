@@ -202,7 +202,6 @@ public class SwimEvent {
 
             Members selectedMember = fileMembers.get(memberChoice);
 
-            Scanner input = new Scanner(System.in);
             double time = InputValidation.ReadInt("Enter swim time for " + selectedMember.name + "(Please write the time in seconds): ");
             int rank = InputValidation.ReadInt("Enter swim rank for " + selectedMember.name + ": ");
 

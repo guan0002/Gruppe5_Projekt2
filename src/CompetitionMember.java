@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class CompetitionMember extends Members {
 
-    private String swimType;
+    private final String swimType;
     static ArrayList<CompetitionMember> juniorCompetitionList = new ArrayList<>();
     static ArrayList<CompetitionMember> seniorCompetitionList = new ArrayList<>();
 
@@ -37,8 +37,11 @@ public class CompetitionMember extends Members {
         if (Members.membersRegister.isEmpty()) {
             System.out.println("No members have been registered yet.");
         } else {
-            int choice = InputValidation.ReadInt(
-                    "1: Display Junior Competitors\n" + "2: Display Senior Competitors\n" + "0: Return to the main menu");
+            int choice = InputValidation.ReadInt("""
+                    1: Display Junior Competitors
+                    2: Display Senior Competitors
+                    0: Return to the main menu""");
+
             if (choice == 1) {
                 for (CompetitionMember cm : juniorCompetitionList) System.out.println(cm);
                 {
