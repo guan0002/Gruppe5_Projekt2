@@ -53,8 +53,7 @@ public class SwimEventMenu {
                     break;
 
                 case 6:
-                    MainMenu.PrintMenus();
-                    break;
+                    return;
 
                 default:
                     System.out.println("Invalid choice!");
