@@ -11,10 +11,10 @@ public class MainMenu {
 
             String[] printMenus = {
                     "",
-                    "Register a new member",
-                    "View member list",
-                    "View competition list",
-                    "View event menu",
+                    "Register new member",
+                    "View all members",
+                    "View competitive swimmers",
+                    "Open event menu",
                     "Close the program",
             };
 
