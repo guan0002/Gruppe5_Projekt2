@@ -11,7 +11,6 @@ public class CompetitionMember extends Members {
         this.swimType = swimType;
     }
 
-
     public boolean tryAddToCompetition() {
 
         if (memberType.equalsIgnoreCase("Passive") || memberType.toLowerCase().contains("retired")) {
