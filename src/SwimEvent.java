@@ -58,14 +58,7 @@ public class SwimEvent {
 
         System.out.println("Event saved!");
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
-            if (back == 0) {
-                break;
-            } else {
-                System.out.println("Invalid input. Please press 0.");
-            }
-        }
+        backToMenu.BTM();
 
         return event;
     } // createEvent()
@@ -125,15 +118,8 @@ public class SwimEvent {
         }
 
         eventList.get(choice).editEvent();
+        backToMenu.BTM();
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
-            if (back == 0) {
-                break;
-            } else {
-                System.out.println("Invalid input. Please press 0.");
-            }
-        }
     } // editEventMenu
 
     public static void addMemberToEvent() throws IOException {
@@ -220,15 +206,8 @@ public class SwimEvent {
             }
             DatabaseSwimEvent.saveEventDatabase();
         }
+        backToMenu.BTM();
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
-            if (back == 0) {
-                break;
-            } else {
-                System.out.println("Invalid input. Please press 0.");
-            }
-        }
     } // addMemberToEvent()
 
     public static void showEvent() {
@@ -259,15 +238,8 @@ public class SwimEvent {
         for (int i = 0; i < selectedEvent.eventMembers.size(); i++) {
             System.out.println((i + 1) + ": " + selectedEvent.eventMembers.get(i));
         }
+        backToMenu.BTM();
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
-            if (back == 0) {
-                break;
-            } else {
-                System.out.println("Invalid input. Please press 0.");
-            }
-        }
     } //showEvent()
 
     public static void showTopRanks() {
@@ -291,15 +263,9 @@ public class SwimEvent {
 
             System.out.println("===========================================================");
         }
+        backToMenu.BTM();
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
-            if (back == 0) {
-                break;
-            } else {
-                System.out.println("Invalid input. Please press 0.");
-            }
-        }
+
     } // showTopRanks()
 
     public String toString() {
@@ -336,4 +302,18 @@ public class SwimEvent {
             return member.name + " | Time: " + time + " | Rank: " + rank;
         }
     } //EventMember
+
+
+    public static class backToMenu {
+        public static void BTM() {
+            while (true) {
+                int back = InputValidation.ReadInt("Press 0 to return to the menu: ");
+                if (back == 0) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please press 0.");
+                }
+            }
+        }
+    }
 }

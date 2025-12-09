@@ -66,14 +66,8 @@ public class Members {
                 DatabaseMember.saveMembersToFile(Members.membersRegister);
                 System.out.println("The member is now registered.");
 
-                while (true) {
-                    int back = InputValidation.ReadInt("Press 0 to get back to the menu:");
-                    if (back == 0) {
-                        return;
-                    } else {
-                        System.out.println("Invalid number. Press 0 to go back.");
-                    }
-                }
+                SwimEvent.backToMenu.BTM();
+                return;
             }
         }
         //Opretter en scanner der kun bliver brugt her fordi InputValidation automatisk filtrerer tal
@@ -120,12 +114,7 @@ public class Members {
             System.out.println("The member is now registered as a recreational swimmer.");
         }
 
-        while (true) {
-            int back = InputValidation.ReadInt("Press 0 to get back to the menu:");
-            if (back == 0) {
-                return;
-            }
-        }
+        SwimEvent.backToMenu.BTM();
     }
 
     @Override
