@@ -5,8 +5,7 @@ public class Main {
 
         try {
             Members.membersRegister = DatabaseMember.loadDatabase();
-                } catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("Failed to load members database.");
             e.printStackTrace();
         }

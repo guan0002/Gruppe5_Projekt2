@@ -51,7 +51,7 @@ public class SwimEvent {
         }
 
 
-        SwimEvent event = new  SwimEvent(eventName, discipline, location, date);
+        SwimEvent event = new SwimEvent(eventName, discipline, location, date);
         eventList.add(event);
 
         DatabaseSwimEvent.saveEventDatabase();
@@ -95,7 +95,7 @@ public class SwimEvent {
         }
 
         System.out.println("Enter a new date DD/MM/YYYY) or ENTER to keep \""
-                + date.format(DATE_FORMATTER) + "\"): " );
+                + date.format(DATE_FORMATTER) + "\"): ");
         String dateInput = input.nextLine();
         if (!dateInput.isEmpty()) {
             this.date = LocalDate.parse(dateInput, DATE_FORMATTER);
@@ -276,7 +276,7 @@ public class SwimEvent {
             return;
         }
 
-            for (SwimEvent event : eventList) {
+        for (SwimEvent event : eventList) {
             Collections.sort(event.eventMembers, Comparator.comparingInt(m -> m.rank));
 
             System.out.println("Event: " + event.eventName + " | Discipline: " + event.discipline);

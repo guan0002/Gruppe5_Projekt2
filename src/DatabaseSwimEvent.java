@@ -47,9 +47,7 @@ public class DatabaseSwimEvent {
 
                     currentEvent = new SwimEvent(eventName, discipline, location, date);
                     SwimEvent.eventList.add(currentEvent);
-                }
-
-                else if (parts.length == 3 && currentEvent != null) {
+                } else if (parts.length == 3 && currentEvent != null) {
 
                     String name = parts[0];
                     double time = Double.parseDouble(parts[1]);

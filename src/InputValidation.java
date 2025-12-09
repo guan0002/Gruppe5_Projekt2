@@ -21,17 +21,17 @@ while (true) {
         System.out.println("Invalid Input! Please type a number");
     }
 }
- }
+}
 
- public static String ReadString(String prompt) {
-    while (true) {
-        System.out.println(prompt);
-        String input = scanner.nextLine().trim();
+    public static String ReadString(String prompt) {
+        while (true) {
+            System.out.println(prompt);
+            String input = scanner.nextLine().trim();
 
-        if (input.matches("[a-zxA-ZæøåÆØÅ ]+")) {
-            return input;
-        } else {
-            System.out.println("Please type a valid input!");
+            if (input.matches("[a-zxA-ZæøåÆØÅ ]+")) {
+                return input;
+            } else {
+                System.out.println("Please type a valid input!");
 
         }
     }

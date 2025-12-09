@@ -14,10 +14,11 @@ public class Members {
         this.name = name;
         this.age = age;
         this.memberType = memberType;
-        this.paid=paid;
-        this.swimType=swimType;
+        this.paid = paid;
+        this.swimType = swimType;
 
     }
+
     public void registerMember() throws IOException {
         String name = InputValidation.ReadString("Write member name");
         int age = InputValidation.ReadInt("Write age");
@@ -60,7 +61,7 @@ public class Members {
             if (team.equalsIgnoreCase("Yes")) {
                 break;
             } else if (team.equalsIgnoreCase("No")) {
-                Members m  = new Members(name, age, memberType, paid, swimType);
+                Members m = new Members(name, age, memberType, paid, swimType);
                 membersRegister.add(m);
                 DatabaseMember.saveMembersToFile(Members.membersRegister);
                 System.out.println("The member is now registered.");
@@ -99,7 +100,7 @@ public class Members {
             }
         }
 
-        Members m  = new Members(name, age, memberType, paid, swimType);
+        Members m = new Members(name, age, memberType, paid, swimType);
         membersRegister.add(m);
         DatabaseMember.saveMembersToFile(Members.membersRegister);
 
@@ -133,7 +134,8 @@ public class Members {
     }
 
     public String memberDisplay() {
-        return "------------------------------------------------------------------------------------------\n" + "Name:" + name + " | " +
+        return "------------------------------------------------------------------------------------------\n" +
+                "Name:" + name + " | " +
                 "Age:" + age + " | " +
                 "Type:" + memberType + " | " +
                 "Paid:" + paid + " | " +
