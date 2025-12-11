@@ -40,7 +40,7 @@ public class Members {
             } else if (age > 18 && age < 60) {
                 memberType = "Senior Member";
             } else {
-                memberType = "Elder Member";
+                memberType = "Retired Member";
             }
         } else {
             memberType = "Passive";

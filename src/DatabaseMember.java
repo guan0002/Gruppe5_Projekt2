@@ -91,5 +91,6 @@ public class DatabaseMember {
 
         System.out.println("Competition database loaded.");
     }
+
 }
 
